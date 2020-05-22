@@ -1,4 +1,4 @@
-describe("visitor can see ads", () => {
+describe("Visitor can see ads", () => {
   beforeEach(() => {
     cy.server();
     cy.route({
@@ -8,10 +8,22 @@ describe("visitor can see ads", () => {
     });
     cy.visit("/");
   });
-  it("on front page", () => {
+  it("on front page ad1", () => {
     cy.get("#ad-1").should("be.visible");
-    cy.get("#ad-1").its("href").should("include", "/index.html");
+    cy.get("#ad-1")
+      .should("have.attr", "href")
+      .and("include", "https://www.mercedes-benz.com/en/");
+    cy.get("#ad-1").click();
+  });
+
+  it("on front page ad2", () => {
     cy.get("#ad-2").should("be.visible");
-    cy.get("#ad-2").its("href").should("include", "/index.html");
+    cy.get("#ad-2")
+      .should("have.attr", "href")
+      .and(
+        "include",
+        "https://www.malts.com/en-gb/visit-our-distilleries/lagavulin/"
+      );
+    cy.get("#ad-2").click();
   });
 });
