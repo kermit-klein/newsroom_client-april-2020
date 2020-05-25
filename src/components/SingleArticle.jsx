@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { Placeholder, Grid, Container } from "semantic-ui-react";
-import axios from 'axios';
+import axios from "axios";
+import Ad from "./Ad";
+import mercedesImg from "../images/mercedesAd.jpg";
 
 const SingleArticle = (props) => {
-  const [article, setArticle] = useState({})
+  const [article, setArticle] = useState({});
 
   useEffect(() => {
     const chooseArticle = async () => {
       let response = await axios.get(`/articles/${props.match.params.id}`);
       setArticle(response.data.article);
     };
-    chooseArticle()
-  }, [])
+    chooseArticle();
+  }, []);
 
   return (
-    <Container align="center" style={{paddingTop: "45px", width: "55%"}}>
+    <Container align="center" style={{ paddingTop: "45px", width: "55%" }}>
       <Grid stretched>
         <Grid.Row centered>
           <Placeholder
@@ -27,9 +29,21 @@ const SingleArticle = (props) => {
           </Placeholder>
         </Grid.Row>
         <Grid.Row centered>
-            <p key={article.id} id={"article-" + article.id + "-body"} style={{ textAlign: "left" }}>
-              {article.body}
-            </p>
+          <p
+            key={article.id}
+            id={"article-" + article.id + "-body"}
+            style={{ textAlign: "left" }}
+          >
+            {article.body}
+          </p>
+        </Grid.Row>
+        <Grid.Row centered>
+          <Ad
+            link={"https://www.mercedes-benz.com/en/"}
+            id={"ad-1"}
+            img={mercedesImg}
+            alt={"mercedes"}
+          />
         </Grid.Row>
       </Grid>
     </Container>

@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Grid } from "semantic-ui-react";
 import ArticleCard from "../components/ArticleCard";
+import Ad from "./Ad";
+import mercedesImg from "../images/mercedesAd.jpg";
+import lagavulinImg from "../images/lagavulinAd.jpg";
 
 const ArticleList = (props) => {
   const [articleList, setArticleList] = useState([]);
@@ -39,7 +42,19 @@ const ArticleList = (props) => {
   return (
     <div>
       <Grid columns={3} divided centered>
+        <Ad
+          link={"https://www.mercedes-benz.com/en/"}
+          id={"ad-1"}
+          img={mercedesImg}
+          alt={"mercedes"}
+        />
         {articleCards}
+        <Ad
+          link={"https://www.malts.com/en-gb/visit-our-distilleries/lagavulin/"}
+          id={"ad-2"}
+          img={lagavulinImg}
+          alt={"lagavulin"}
+        />
       </Grid>
     </div>
   );
