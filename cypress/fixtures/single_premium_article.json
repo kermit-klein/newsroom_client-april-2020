@@ -1,0 +1,9 @@
+{
+  "article": {
+    "id": 2,
+    "title": "Premium title",
+    "published_at": "2020-02-20 13:37",
+    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phassellus nec ex ruttrum, cursus elit sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phassellus nec ex ruttrum, cursus elit sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "premium": true
+  }
+}

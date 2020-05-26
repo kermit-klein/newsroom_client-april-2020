@@ -1,0 +1,22 @@
+#cover {
+  background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 1));
+  margin-top: -4em;
+  height: 4.2em;
+  position: relative;
+  z-index: 12;
+}
+
+#premium-blocker {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid grey;
+  align-items: center;
+  background-color: #409d9b;
+  border-radius: 3px;
+}
+
+#premium-blocker > * {
+  color: white;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

@@ -3,6 +3,7 @@ import { Placeholder, Grid, Container } from "semantic-ui-react";
 import axios from "axios";
 import Ad from "./Ad";
 import mercedesImg from "../images/mercedesAd.jpg";
+import PremiumBlocker from "./PremiumBlocker"
 
 const SingleArticle = (props) => {
   const [article, setArticle] = useState({});
@@ -44,6 +45,7 @@ const SingleArticle = (props) => {
             style={{ textAlign: "left" }}
           >
             {article.body}
+            {article.premium && <PremiumBlocker />}
           </p>
         </Grid.Row>
         <Grid.Row centered>
