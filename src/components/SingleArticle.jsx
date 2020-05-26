@@ -31,6 +31,15 @@ const SingleArticle = (props) => {
         <Grid.Row centered>
           <p
             key={article.id}
+            id={"article-" + article.id + "-date"}
+            style={{ textAlign: "left" }}
+          >
+            Published at: {article.published_at}
+          </p>
+        </Grid.Row>
+        <Grid.Row centered>
+          <p
+            key={article.id}
             id={"article-" + article.id + "-body"}
             style={{ textAlign: "left" }}
           >
