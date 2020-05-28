@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, Icon } from "semantic-ui-react";
+import { Menu } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
 import "../css/Navbar.css";
 
@@ -16,7 +16,7 @@ const Navbar = () => {
 
   let renderCategories = categories.map((cat) => {
     return (
-      <Menu.Item>
+      <Menu.Item boderless>
         <NavLink to={`/category/${cat.toLowerCase()}`} id={cat.toLowerCase()}>
           {cat}
         </NavLink>
@@ -25,11 +25,19 @@ const Navbar = () => {
   });
 
   return (
-    <div id="navbar">
-      <Menu color="lightgrey" centered>
+    <div>
+      <Menu
+        id="navbar"
+        inverted
+        secondary
+        widths="10"
+        color="grey"
+        borderless
+        stackable
+      >
         <Menu.Item>
           <NavLink to="/">
-            <Icon name="home" size="big" color="blue"></Icon>
+            <span id="logo">DNS</span>
           </NavLink>
         </Menu.Item>
         {renderCategories}

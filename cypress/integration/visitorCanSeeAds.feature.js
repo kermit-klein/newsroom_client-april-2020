@@ -36,7 +36,7 @@ describe("Visitor can see ads", () => {
         response: "fixture:single_article.json",
       });
       cy.get("#article-1").within(() => {
-        cy.get("#article-title").click();
+        cy.get(".article-title").click();
       });
     });
 

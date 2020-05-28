@@ -1,0 +1,11 @@
+.article-title {
+  position: absolute;
+  bottom: 40px;
+  margin-left: 35px;
+}
+
+.article-body {
+  text-align: justify !important;
+  word-wrap: normal;
+  font-size: 18px;
+}

@@ -13,7 +13,7 @@ describe("visitor can read a specific article", () => {
     });
     cy.visit("/");
     cy.get("#article-1").within(() => {
-      cy.get("#article-title").click();
+      cy.get(".article-title").click();
     })
   });
 

@@ -5,7 +5,7 @@ import * as serviceWorker from "./serviceWorker";
 import "semantic-ui-css/semantic.min.css";
 import axios from "axios";
 import { BrowserRouter } from "react-router-dom";
-import "./css/Header.css";
+import "./css/Index.css";
 
 axios.defaults.baseURL = "https://newsroom-april2020-api.herokuapp.com/api";
 
