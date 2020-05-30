@@ -7,7 +7,11 @@ import axios from "axios";
 import { BrowserRouter } from "react-router-dom";
 import "./css/Index.css";
 
-axios.defaults.baseURL = "https://newsroom-april2020-api.herokuapp.com/api";
+if (process.env.NODE_ENV === "production") {
+  axios.defaults.baseURL = process.env.REACT_APP_HEROKUURL;
+} else if (process.env.NODE_ENV === "development") {
+  axios.defaults.baseURL = process.env.REACT_APP_LOCALURL;
+}
 
 ReactDOM.render(
   <BrowserRouter>
