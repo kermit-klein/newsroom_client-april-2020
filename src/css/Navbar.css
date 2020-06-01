@@ -1,3 +1,9 @@
 .ui.menu {
   justify-content: center;
 }
+
+#logo {
+  font-family: "Cinzel Decorative", cursive;
+  color: white;
+  font-size: 3vw;
+}

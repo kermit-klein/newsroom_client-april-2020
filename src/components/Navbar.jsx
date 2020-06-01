@@ -41,6 +41,11 @@ const Navbar = () => {
           </NavLink>
         </Menu.Item>
         {renderCategories}
+        <Menu.Item>
+          <NavLink to="/subscription" id='subscription-link'>
+            Subscribe
+          </NavLink>
+        </Menu.Item>
       </Menu>
     </div>
   );
