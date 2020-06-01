@@ -40,7 +40,6 @@ a {
 #login {
   font-family: "Quattrocento", serif;
   font-weight: bold;
-  margin-right: 30px;
 }
 
 #navbar {
@@ -50,4 +49,5 @@ a {
 
 #head {
   background-color: #409d9b;
+  margin: 0 !important;
 }

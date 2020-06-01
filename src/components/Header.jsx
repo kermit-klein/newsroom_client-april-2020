@@ -30,12 +30,15 @@ const Header = (props) => {
   };
 
   return (
-    <Grid id='head'>
-      <Grid.Row>
-        <Grid.Column>
+    <Grid id="head">
+      <Grid.Row columns="equal">
+        <Grid.Column></Grid.Column>
+        <Grid.Column centered>
           <h1 id="header" style={{ textAlign: "center" }}>
             <span>D</span>aily <span>N</span>ews <span>S</span>ense
           </h1>
+        </Grid.Column>
+        <Grid.Column>
           <div id="login">
             {!props.authenticated ? (
               <Link name="Login" to={{ pathname: "/sign_in" }}>

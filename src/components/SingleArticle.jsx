@@ -23,17 +23,19 @@ const SingleArticle = (props) => {
     <Container align="center" style={{ paddingTop: "45px", width: "55%" }}>
       <Grid stretched>
         <Grid.Row centered>
-          <Image
-            src={article.image}
-            style={{ height: 200, width: 400, textAlign: "left" }}
-          />
-          <h5
-            key={article.id}
-            id={"article-" + article.id + "-title"}
-            className="article-title"
-          >
-            {article.title}
-          </h5>
+          <div className="title-image">
+            <Image
+              src={article.image}
+              style={{ height: 200, width: 400, textAlign: "left" }}
+            />
+            <h5
+              key={article.id}
+              id={"article-" + article.id + "-title"}
+              className="article-title"
+            >
+              {article.title}
+            </h5>
+          </div>
         </Grid.Row>
         <Grid.Row centered>
           <p
