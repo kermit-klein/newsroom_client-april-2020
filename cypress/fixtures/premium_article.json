@@ -5,6 +5,7 @@
     "published_at": "2020-02-20 02:02",
     "body": "This is a premium article, full of premium Latin. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec ex rutrum, cursus elit sed, tristique libero. Pellentesque vel dictum odio. Integer est purus, varius vitae nunc in, imperdiet hendrerit nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam tristique eu quam at egestas. Phasellus pretium nisl et purus consequat, at bibendum metus aliquet. Sed vehicula est nec justo sollicitudin, sit amet faucibus ex dictum. Proin dapibus dapibus orci, quis tincidunt ante auctor vitae. Pellentesque massa nulla, interdum vitae imperdiet non, luctus sed dui. Vestibulum blandit a lectus et eleifend. Maecenas interdum varius fringilla, Conclusion.",
     "premium": true,
-    "category": "other"
+    "category": "other",
+    "image": "https://picsum.photos/400/300"
   }
 }

@@ -24,6 +24,17 @@ const LoginForm = (props) => {
       setMessage(error.response.data.errors[0]);
     }
   };
+  const signUp_message =
+    props.uid === "" ? (
+      <p>
+        Don't have an account?<br></br>
+        <Link id="signup" name="Signup" to={{ pathname: "/sign_up" }}>
+          Click here to sign up.
+        </Link>
+      </p>
+    ) : (
+      <p id="signedup">Signed up sucessfully!</p>
+    );
   return (
     <>
       <Grid className="login-container" verticalAlign="middle">
@@ -38,12 +49,7 @@ const LoginForm = (props) => {
             <br></br>
             <Button id="submit">Submit</Button>
             <br></br>
-            <p>
-              Don't have an account?<br></br>{" "}
-              <Link name="Signup" to={{ pathname: "/sign_up" }}>
-                Click here to sign up.
-              </Link>
-            </p>
+            {signUp_message}
           </Form>
         </Grid.Column>
       </Grid>

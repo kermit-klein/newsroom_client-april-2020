@@ -1,11 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@450&family=Quattrocento:wght@700&display=swap");
 
-#logo {
-  font-family: "Cinzel Decorative", cursive;
-  color: white;
-  font-size: 60px;
-}
+
 
 span {
   font-family: "Cinzel Decorative", cursive;
@@ -36,10 +32,6 @@ p {
   color: white;
 }
 
-div.row {
-  background-color: #409d9b;
-}
-
 a {
   color: white;
   font-family: "Quattrocento", serif;
@@ -53,10 +45,9 @@ a {
 
 #navbar {
   font-family: "Quattrocento", serif;
-  font-size: 20px;
+  font-size: 2vw;
 }
 
-#header {
-  margin-top: 30px;
+#head {
   background-color: #409d9b;
 }

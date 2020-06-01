@@ -1,9 +1,9 @@
 {
   "articles": [
-    { "id": 1, "title": "title 1" },
-    { "id": 2, "title": "title 2" },
-    { "id": 3, "title": "title 3" },
-    { "id": 4, "title": "title 4" },
-    { "id": 5, "title": "title 5" }
+    { "id": 1, "title": "title 1",  "image": "https://picsum.photos/800/600" },
+    { "id": 2, "title": "title 2",  "image": "https://picsum.photos/500/400" },
+    { "id": 3, "title": "title 3",  "image": "https://picsum.photos/400/300" },
+    { "id": 4, "title": "title 4",  "image": "https://picsum.photos/700/500" },
+    { "id": 5, "title": "title 5",  "image": "https://picsum.photos/400/300" }
   ]
 }

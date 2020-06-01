@@ -30,7 +30,7 @@ const Header = (props) => {
   };
 
   return (
-    <Grid>
+    <Grid id='head'>
       <Grid.Row>
         <Grid.Column>
           <h1 id="header" style={{ textAlign: "center" }}>
