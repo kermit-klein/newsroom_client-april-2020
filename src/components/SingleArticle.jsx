@@ -26,7 +26,7 @@ const SingleArticle = (props) => {
           <div className="title-image">
             <Image
               src={article.image}
-              style={{ height: 200, width: 400, textAlign: "left" }}
+              style={{ height: 400, width: 800 }}
             />
             <h5
               key={article.id}

@@ -12,9 +12,9 @@ const PremiumBlocker = () => {
         <h4>
           <Icon name="lock" />
         </h4>
-        <Link name="Login" to={{ pathname: "/sign_in" }}>
+        <Link name="Login" to={{ pathname: "/subscription" }}>
           <Button floated="right" basic inverted id="login">
-            Sign in to view this article
+            Become a subscriber to view this article
           </Button>
         </Link>
       </div>
