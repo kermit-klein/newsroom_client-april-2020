@@ -2,7 +2,7 @@ import React from "react";
 import { Grid, Button } from "semantic-ui-react";
 import { Link, useHistory } from "react-router-dom";
 import auth from "../modules/auth.js";
-import '../css/Header.css';
+import "../css/Header.css";
 
 const date = new Date();
 const currentTime = date.getHours();
@@ -39,6 +39,11 @@ const Header = (props) => {
           </h1>
         </Grid.Column>
         <Grid.Column>
+          <Link to="/subscription" id="subscription-link">
+            <Button id="subscribe" floated="right" basic inverted>
+              Subscribe
+            </Button>
+          </Link>
           <div id="login">
             {!props.authenticated ? (
               <Link name="Login" to={{ pathname: "/sign_in" }}>

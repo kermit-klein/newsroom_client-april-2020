@@ -8,10 +8,10 @@ span {
   color: white;
 }
 
-h1 {
+h1#header {
   font-family: "Quattrocento", serif;
   color: white;
-  font-size: 40px;
+  font-size: 3vw;
 }
 
 h2,
@@ -36,14 +36,9 @@ a {
   font-family: "Quattrocento", serif;
 }
 
-#login {
+#login, #subscribe {
   font-family: "Quattrocento", serif;
   font-weight: bold;
-}
-
-#navbar {
-  font-family: "Quattrocento", serif;
-  font-size: 2vw;
 }
 
 #head {

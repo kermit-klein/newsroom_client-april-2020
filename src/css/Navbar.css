@@ -1,5 +1,8 @@
 .ui.menu {
   justify-content: center;
+  padding-top: 0;
+  margin-top: 0;
+  border-width: 0;
 }
 
 .ui.item.menu .item {
@@ -9,5 +12,12 @@
 #logo {
   font-family: "Cinzel Decorative", cursive;
   color: white;
-  font-size: 3vw;
+  font-size: 2vw;
 }
+
+#navbar {
+  font-family: "Quattrocento", serif;
+  font-size: 1.3vw; 
+}
+
+
