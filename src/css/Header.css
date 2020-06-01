@@ -50,3 +50,14 @@ a {
   background-color: #409d9b;
   margin: 0 !important;
 }
+
+#welcome-and-logout {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#welcome-and-logout > p {
+  color: white !important;
+  text-align: right;
+  margin-right: 10px;
+}

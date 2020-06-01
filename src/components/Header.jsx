@@ -47,8 +47,8 @@ const Header = (props) => {
                 </Button>
               </Link>
             ) : (
-              <>
-                <p style={{ textAlign: "right" }}>
+              <div id="welcome-and-logout">
+                <p>
                   Good {time} <br></br>
                   {props.uid}
                 </p>
@@ -63,7 +63,7 @@ const Header = (props) => {
                     Logout
                   </Button>
                 </Link>
-              </>
+              </div>
             )}
           </div>
         </Grid.Column>
