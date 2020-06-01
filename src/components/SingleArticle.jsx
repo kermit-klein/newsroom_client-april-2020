@@ -41,7 +41,7 @@ const SingleArticle = (props) => {
           <p
             key={article.id}
             id={"article-" + article.id + "-date"}
-            style={{ textAlign: "left" }}
+            className="published-at"
           >
             Published at: {article.published_at}
           </p>

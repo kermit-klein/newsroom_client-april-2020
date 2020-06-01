@@ -19,3 +19,8 @@
 .title-image > * {
   font-size: 160%
 }
+
+.published-at {
+  font-size: 130%;
+  color: #888888
+}
