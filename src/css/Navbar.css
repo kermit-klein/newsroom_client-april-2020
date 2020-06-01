@@ -20,4 +20,8 @@
   font-size: 1.3vw; 
 }
 
+#navbar :hover {
+  color: #aadddd;
+}
+
 
