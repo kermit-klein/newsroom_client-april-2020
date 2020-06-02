@@ -2,21 +2,22 @@ import React, { useState } from "react";
 import { Menu } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
 import "../css/Navbar.css";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
   const [activeItem, setActiveItem] = useState("home")
+  const { t } = useTranslation();
   let categories = [
-  "Current",
-    "World",
-    "Politics",
-    "Economy",
-    "Sport",
-    "Entertainment",
-    "Other",
+    t("Current"),
+    t("World"),
+    t("Politics"),
+    t("Economy"),
+    t("Sport"),
+    t("Entertainment"),
+    t("Other"),
   ];
 
   const handleItemClick = (e, { name }) => {
-    debugger
     setActiveItem(name)
   }
 

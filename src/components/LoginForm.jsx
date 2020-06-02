@@ -4,10 +4,12 @@ import auth from "../modules/auth";
 import { useHistory } from "react-router-dom";
 import "../css/index.css";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const LoginForm = (props) => {
   const [message, setMessage] = useState("");
   const history = useHistory();
+  const { t } = useTranslation();
 
   const login = async (e) => {
     try {
@@ -27,13 +29,13 @@ const LoginForm = (props) => {
   const signUp_message =
     props.uid === "" ? (
       <p>
-        Don't have an account?<br></br>
+        {t("Don't have an account?")}<br></br>
         <Link id="signup" name="Signup" to={{ pathname: "/sign_up" }}>
-          Click here to sign up.
+          {t("Click here to sign up")}
         </Link>
       </p>
     ) : (
-      <p id="signedup">Signed up sucessfully!</p>
+      <p id="signedup">{t("Signed up sucessfully!")}</p>
     );
   return (
     <>
@@ -41,13 +43,13 @@ const LoginForm = (props) => {
         <Grid.Column align="center">
           <h3 id="error-message">{message}</h3>
           <Form unstackable id="login-form" onSubmit={login}>
-            <h1>Log in</h1>
-            <h4>Email</h4>
+            <h1>{t('Log in')}</h1>
+            <h4>{t('Email')}</h4>
             <Input name="email" type="email" id="email"></Input>
-            <h4>Password</h4>
+            <h4>{t('Password')}</h4>
             <Input name="password" type="password" id="password"></Input>
             <br></br>
-            <Button id="submit">Submit</Button>
+            <Button id="submit">{t('Submit')}</Button>
             <br></br>
             {signUp_message}
           </Form>
