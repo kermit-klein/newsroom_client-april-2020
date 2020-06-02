@@ -2,21 +2,23 @@ import React from "react";
 import { Menu } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
 import "../css/Navbar.css";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
+  const { t } = useTranslation();
   let categories = [
-    "Current",
-    "World",
-    "Politics",
-    "Economy",
-    "Sport",
-    "Entertainment",
-    "Other",
+    t("Current"),
+    t("World"),
+    t("Politics"),
+    t("Economy"),
+    t("Sport"),
+    t("Entertainment"),
+    t("Other"),
   ];
 
   let renderCategories = categories.map((cat) => {
     return (
-      <Menu.Item boderless>
+      <Menu.Item borderless>
         <NavLink to={`/category/${cat.toLowerCase()}`} id={cat.toLowerCase()}>
           {cat}
         </NavLink>
