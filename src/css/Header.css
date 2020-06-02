@@ -36,7 +36,8 @@ p {
   padding-right: 10px;
 }
 
-#head {
+#header {
+  padding: 20px;
   background-color: #409d9b;
 }
 
