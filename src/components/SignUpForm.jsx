@@ -3,10 +3,12 @@ import { Grid, Button, Form, Input } from "semantic-ui-react";
 import auth from "../modules/auth";
 import { useHistory } from "react-router-dom";
 import "../css/index.css";
+import { useTranslation } from "react-i18next";
 
 const SignUpForm = (props) => {
   const [message, setMessage] = useState("");
   const history = useHistory();
+  const { t, i18n } = useTranslation();
 
   const signup = async (e) => {
     e.preventDefault();
@@ -30,12 +32,12 @@ const SignUpForm = (props) => {
         <Grid.Column align="center">
           <h3 id="error-message">{message}</h3>
           <Form unstackable id="signup-form" onSubmit={signup}>
-            <h1>Sign up</h1>
+            <h1>{t("Sign up")}</h1>
             <h4>Email</h4>
             <Input name="email" type="email" id="email"></Input>
             <h4>Password</h4>
             <Input name="password" type="password" id="password"></Input>
-            <h4>Confirm Password</h4>
+            <h4>{t("Confirm Password")}</h4>
             <Input
               name="passwordConfirmation"
               type="password"

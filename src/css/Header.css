@@ -48,6 +48,7 @@ a {
   font-size: 2vw;
 }
 
-#head {
+#header {
+  padding: 20px;
   background-color: #409d9b;
 }

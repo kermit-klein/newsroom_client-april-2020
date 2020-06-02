@@ -4,12 +4,14 @@ import "../css/CreateSubscription.css";
 import PaymentInterface from "./PaymentInterface";
 import { Elements } from 'react-stripe-elements'
 import { Link } from "react-router-dom";
-import { Button, Segment } from "semantic-ui-react"
+import { Button, Segment } from "semantic-ui-react";
+import { useTranslation } from "react-i18next";
 
 const CreateSubscription = (props) => {
   const headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"));
   const [subscriberStatus, setSubscriberStatus] = useState(false);
   const [transactionMessage, setTransactionMessage] = useState("");
+  const { t, i18n } = useTranslation();
 
   const submitPayment = async (stripeToken) => {
     try {
@@ -38,7 +40,7 @@ const CreateSubscription = (props) => {
         (subscriberStatus ? (
           <div className="messages">
             <h2 id="transaction-message">{transactionMessage}</h2>
-            <h1 id="subscriber-message">You are a subscriber!</h1>
+            <h1 id="subscriber-message">{t("You are a subscriber!")}</h1>
           </div>
         ) : (
           <>
@@ -50,10 +52,10 @@ const CreateSubscription = (props) => {
         )
       ) : (
         <div className="messages">
-          <h1 id="subscribe-today">Become a subscriber today!</h1>
+            <h1 id="subscribe-today">{t("Become a subscriber today!")}</h1>
           <Link name="Login" to={{ pathname: "/sign_in" }}>
             <Segment inverted className="button-segment">
-              <Button basic inverted id="sign-in-sign-up">Log in or sign up to proceed!</Button>
+                <Button basic inverted id="sign-in-sign-up">{t("Log in or sign up to proceed!")}</Button>
             </Segment>
           </Link>
         </div>
