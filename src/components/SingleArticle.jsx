@@ -46,7 +46,7 @@ const SingleArticle = (props) => {
             id={"article-" + article.id + "-date"}
             className="published-at"
           >
-            {t('Published at:')} {article.published_at}
+            {t('Published at')} {article.published_at}
           </p>
         </Grid.Row>
         <Grid.Row centered>
