@@ -29,13 +29,13 @@ const LoginForm = (props) => {
   const signUp_message =
     props.uid === "" ? (
       <p>
-        Don't have an account?<br></br>
+        {t("Don't have an account?")}<br></br>
         <Link id="signup" name="Signup" to={{ pathname: "/sign_up" }}>
-          Click here to sign up.
+          {t("Click here to sign up")}
         </Link>
       </p>
     ) : (
-      <p id="signedup">Signed up sucessfully!</p>
+      <p id="signedup">{t("Signed up sucessfully!")}</p>
     );
   return (
     <>

@@ -5,7 +5,7 @@ import * as serviceWorker from "./serviceWorker";
 import "semantic-ui-css/semantic.min.css";
 import axios from "axios";
 import { BrowserRouter } from "react-router-dom";
-import { StripeProvider } from 'react-stripe-elements'
+import { StripeProvider } from "react-stripe-elements";
 import "./css/index.css";
 
 if (process.env.NODE_ENV === "production") {
