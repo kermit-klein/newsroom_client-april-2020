@@ -4,8 +4,7 @@ import { Grid, Button } from "semantic-ui-react";
 import { Link, useHistory } from "react-router-dom";
 import auth from "../modules/auth.js";
 import "../css/Header.css";
-import '../i18n'
-
+import "../i18n";
 
 const Header = (props) => {
   const history = useHistory();
@@ -22,7 +21,6 @@ const Header = (props) => {
   const { t, i18n } = useTranslation();
   const date = new Date();
   const currentTime = date.getHours();
-  
 
   let time;
 
@@ -35,48 +33,75 @@ const Header = (props) => {
   }
 
   return (
-    <Grid columns={3} id='header'>
-      <Grid.Row>
+    <Grid id="head">
+      <Grid.Row columns="equal">
         <Grid.Column>
-          <Button.Group id='language'>
-            <Button basic inverted onClick={() => {i18n.changeLanguage("en")}}>EN</Button>
+          <Button.Group size="mini" id="language">
+            <Button
+              basic
+              inverted
+              onClick={() => {
+                i18n.changeLanguage("en");
+              }}
+            >
+              EN
+            </Button>
             <Button.Or />
-            <Button basic inverted onClick={() => {i18n.changeLanguage("sv")}}>SV</Button>
+            <Button
+              basic
+              inverted
+              onClick={() => {
+                i18n.changeLanguage("sv");
+              }}
+            >
+              SV
+            </Button>
           </Button.Group>
-          </Grid.Column>
-          <Grid.Column>
-          <h1 style={{ textAlign: "center" }}>
+        </Grid.Column>
+        <Grid.Column centered>
+          <h1 id="header">
             <span>D</span>aily <span>N</span>ews <span>S</span>ense
           </h1>
-          </Grid.Column>
-          <Grid.Column>
-          <div id="login">
-            {!props.authenticated ? (
-              <Link name="Login" to={{ pathname: "/sign_in" }}>
-                <Button floated="right" basic inverted id="login">
-                  {t("Login")}
-                </Button>
-              </Link>
-            ) : (
-              <>
-                <p style={{ textAlign: "right" }}>
+        </Grid.Column>
+        <Grid.Column id="login">
+          {!props.authenticated ? (
+            <Link name="Login" to={{ pathname: "/sign_in" }}>
+              <Button size="tiny" floated="right" basic inverted id="login">
+                {t("Login")}
+              </Button>
+            </Link>
+          ) : (
+            <>
+              <Grid.Column>
+                <p>
                   {t("Good")} {time} <br></br>
                   {props.uid}
                 </p>
+              </Grid.Column>
+
+              <Grid.Column>
                 <Link name="Logout" to={{ pathname: "/sign_in" }}>
                   <Button
                     floated="right"
                     basic
                     inverted
+                    size="tiny"
                     id="logout"
                     onClick={() => logout()}
                   >
                     {t("Logout")}
                   </Button>
                 </Link>
-              </>
-            )}
-          </div>
+              </Grid.Column>
+            </>
+          )}
+          <Grid.Column>
+            <Link to="/subscription" id="subscription-link">
+              <Button size="tiny" id="subscribe" floated="right" basic inverted>
+                {t("Subscribe")}
+              </Button>
+            </Link>
+          </Grid.Column>
         </Grid.Column>
       </Grid.Row>
     </Grid>
