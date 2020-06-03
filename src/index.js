@@ -12,7 +12,7 @@ import configureStore from "./state/store/configureStore";
 
 axios.defaults.baseURL = "http://localhost:3000/api";
 const store = configureStore();
-const apiKey = process.env.REACT_APP_API_key;
+let apiKey = process.env.REACT_APP_API_KEY;
 if (process.env.NODE_ENV === "production") {
   axios.defaults.baseURL = process.env.REACT_APP_HEROKUURL;
 } else if (process.env.NODE_ENV === "development") {
