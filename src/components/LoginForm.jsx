@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 
 const LoginForm = (props) => {
-  const [errorMessage, seterrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const signupMessage = useSelector((state) => state.signupMessage);
   const history = useHistory();
   const { t } = useTranslation();
@@ -25,7 +25,7 @@ const LoginForm = (props) => {
         history.goBack();
       }
     } catch (error) {
-      seterrorMessage(error.response.data.errors[0]);
+      setErrorMessage(error.response.data.errors[0]);
     }
   };
 
