@@ -6,8 +6,8 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         country: action.payload.country,
-        city: action.payload.city
-      }
+        city: action.payload.city,
+      };
     default:
       return state;
   }
