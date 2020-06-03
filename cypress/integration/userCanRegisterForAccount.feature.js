@@ -16,6 +16,7 @@ describe("User can register for an account", () => {
         response: "fixture:successful_signup.json",
       });
       cy.visit("/");
+      cy.get("#language").contains("EN").click();
       cy.get("button#login").click();
       cy.get("#signup").click();
       cy.get("#signup-form").within(() => {
@@ -44,6 +45,7 @@ describe("User can register for an account", () => {
         status: 422,
       });
       cy.visit("/");
+      cy.get("#language").contains("EN").click();
       cy.get("button#login").click();
       cy.get("#signup").click();
       cy.get("#signup-form").within(() => {
