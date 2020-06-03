@@ -7,8 +7,7 @@ import Navbar from "./components/Navbar";
 import CreateSubscription from "./components/CreateSubscription";
 import LoginForm from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
-
-
+import { connect } from "react-redux";
 
 const App = () => {
   const [uid, setUid] = useState("");
@@ -55,4 +54,4 @@ const App = () => {
     </>
   );
 };
-export default App;
+export default connect()(App);
