@@ -16,12 +16,12 @@ const ArticleCard = ({ article }) => {
   return (
     <Grid.Row width={3} centered>
       <Link
+          onClick={onClickHandler}
         to={{
           pathname: `/article/${article.id}`,
         }}
         key={article.id}
         id={"article-" + article.id}
-        onClick={onClickHandler}
       >
         <Image
           src={article.image}

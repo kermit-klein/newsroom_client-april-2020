@@ -1,14 +1,9 @@
-import initialState from '../store/initialState';
+import { combineReducers } from 'redux';
+import articleReducer from './articleReducer';
 
-const rootReducer = (state = initialState, action) => {
-  if (action.type === "SET_ACTIVE_ARTICLE") {
-		return {
-			...state,
-			activeArticle: action.payload
-    }
-  }
+const rootReducer = combineReducers({
+  articleReducer
+}) 
 
-  return state;
-};
 
 export default rootReducer;
