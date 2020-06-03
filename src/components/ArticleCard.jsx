@@ -1,12 +1,18 @@
 import React from "react";
 import { Grid, Image } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import { useDispatch } from 'react-redux'
 
 const ArticleCard = ({ article }) => {
+  const dispatch = useDispatch()
+
   const onClickHandler = () => {
-    debugger
+    dispatch({
+      type: "SET_ACTIVE_ARTICLE",
+      payload: article
+    })
   }
-  
+
   return (
     <Grid.Row width={3} centered>
       <Link

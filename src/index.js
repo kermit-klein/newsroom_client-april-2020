@@ -16,11 +16,11 @@ const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>
-  <StripeProvider apiKey="pk_test_21nBNjeqdyB1Mzm2VjDPQprF00kyEKYZSK">
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </StripeProvider>
+    <StripeProvider apiKey="pk_test_21nBNjeqdyB1Mzm2VjDPQprF00kyEKYZSK">
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </StripeProvider>
   </Provider>,
   document.getElementById("root")
 );
