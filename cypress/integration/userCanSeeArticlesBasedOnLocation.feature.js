@@ -1,3 +1,5 @@
+const stubLocation = require("../support/stubLocation");
+
 describe("visitor can view articles basen on location", () => {
   beforeEach(() => {
     cy.server();
@@ -40,7 +42,7 @@ describe("Visitor can't see local news when location is null", () => {
       url: "http://localhost:3000/api/articles",
       response: "fixture:article_list_location.json",
     });
-    cy.visit("/");
+    cy.visit("/", stubLocation({ latitude: [], longitude: [] }));
   });
 
   it("undefined location message is shown instead", () => {

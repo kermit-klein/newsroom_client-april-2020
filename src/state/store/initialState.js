@@ -1,5 +1,5 @@
 const initialState = {
-  city: "",
-  country: "",
+  city: null,
+  country: null,
 };
 export default initialState;

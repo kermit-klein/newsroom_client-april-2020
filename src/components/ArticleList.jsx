@@ -26,7 +26,7 @@ const ArticleList = (props) => {
   }, []);
 
   let filteredArticles = () => {
-    switch (category) {
+    switch ((category, location)) {
       case "":
         return articleList;
       case "local":
