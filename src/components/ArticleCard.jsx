@@ -3,6 +3,10 @@ import { Grid, Image } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 const ArticleCard = ({ article }) => {
+  const onClickHandler = () => {
+    debugger
+  }
+  
   return (
     <Grid.Row width={3} centered>
       <Link
@@ -11,6 +15,7 @@ const ArticleCard = ({ article }) => {
         }}
         key={article.id}
         id={"article-" + article.id}
+        onClick={onClickHandler}
       >
         <Image
           src={article.image}
