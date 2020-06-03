@@ -1,5 +1,6 @@
 import React, { useState, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
+import { connect } from 'react-redux';
 import ArticleList from "./components/ArticleList";
 import Header from "./components/Header";
 import SingleArticle from "./components/SingleArticle";
@@ -7,7 +8,6 @@ import Navbar from "./components/Navbar";
 import CreateSubscription from "./components/CreateSubscription";
 import LoginForm from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
-
 
 
 const App = () => {
@@ -55,4 +55,4 @@ const App = () => {
     </>
   );
 };
-export default App;
+export default connect()(App);

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Grid, Container, Image } from "semantic-ui-react";
+import { connect, useSelector } from 'react-redux';
 import axios from "axios";
 import Ad from "./Ad";
 import mercedesImg from "../images/mercedesAd.jpg";
@@ -72,4 +73,4 @@ const SingleArticle = (props) => {
     </Container>
   );
 };
-export default SingleArticle;
+export default connect()(SingleArticle);
