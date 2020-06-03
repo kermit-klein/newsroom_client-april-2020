@@ -1,0 +1,144 @@
+{
+  "documentation" : "https://opencagedata.com/api",
+  "licenses" : [
+     {
+        "name" : "see attribution guide",
+        "url" : "https://opencagedata.com/credits"
+     }
+  ],
+  "rate" : {
+     "limit" : 2500,
+     "remaining" : 2471,
+     "reset" : 1591228800
+  },
+  "results" : [
+     {
+        "annotations" : {
+           "DMS" : {
+              "lat" : "57\u00b0 42' 0.08244'' N",
+              "lng" : "12\u00b0 0' 0.39888'' E"
+           },
+           "MGRS" : "33VUD2123399270",
+           "Maidenhead" : "JO67aq08aa",
+           "Mercator" : {
+              "x" : 1335846.224,
+              "y" : 7868415.52
+           },
+           "OSM" : {
+              "edit_url" : "https://www.openstreetmap.org/edit?way=181422442#map=16/57.70002/12.00011",
+              "note_url" : "https://www.openstreetmap.org/note/new#map=16/57.70002/12.00011&layers=N",
+              "url" : "https://www.openstreetmap.org/?mlat=57.70002&mlon=12.00011#map=16/57.70002/12.00011"
+           },
+           "UN_M49" : {
+              "regions" : {
+                 "EUROPE" : "150",
+                 "NORTHERN_EUROPE" : "154",
+                 "SE" : "752",
+                 "WORLD" : "001"
+              },
+              "statistical_groupings" : [
+                 "MEDC"
+              ]
+           },
+           "callingcode" : 46,
+           "currency" : {
+              "alternate_symbols" : [
+                 ":-"
+              ],
+              "decimal_mark" : ",",
+              "disambiguate_symbol" : "SEK",
+              "html_entity" : "",
+              "iso_code" : "SEK",
+              "iso_numeric" : "752",
+              "name" : "Swedish Krona",
+              "smallest_denomination" : 100,
+              "subunit" : "\u00d6re",
+              "subunit_to_unit" : 100,
+              "symbol" : "kr",
+              "symbol_first" : 0,
+              "thousands_separator" : " "
+           },
+           "flag" : "\ud83c\uddf8\ud83c\uddea",
+           "geohash" : "u6281pfnyzg5hzp6qm6x",
+           "qibla" : 139.05,
+           "roadinfo" : {
+              "drive_on" : "right",
+              "road" : "Orangerigatan",
+              "speed_in" : "km/h"
+           },
+           "sun" : {
+              "rise" : {
+                 "apparent" : 1591150800,
+                 "astronomical" : 0,
+                 "civil" : 1591146840,
+                 "nautical" : 0
+              },
+              "set" : {
+                 "apparent" : 1591214460,
+                 "astronomical" : 0,
+                 "civil" : 1591218480,
+                 "nautical" : 0
+              }
+           },
+           "timezone" : {
+              "name" : "Europe/Stockholm",
+              "now_in_dst" : 1,
+              "offset_sec" : 7200,
+              "offset_string" : "+0200",
+              "short_name" : "CEST"
+           },
+           "what3words" : {
+              "words" : "detect.takes.mattress"
+           }
+        },
+        "bounds" : {
+           "northeast" : {
+              "lat" : 57.7000717,
+              "lng" : 12.0002329
+           },
+           "southwest" : {
+              "lat" : 57.6999741,
+              "lng" : 11.9999887
+           }
+        },
+        "components" : {
+           "ISO_3166-1_alpha-2" : "SE",
+           "ISO_3166-1_alpha-3" : "SWE",
+           "_category" : "building",
+           "_type" : "building",
+           "city" : "Gothenburg",
+           "city_district" : "\u00d6rgryte-H\u00e4rlanda",
+           "continent" : "Europe",
+           "country" : "Sweden",
+           "country_code" : "se",
+           "county" : "G\u00f6teborgs Stad",
+           "house_number" : "2",
+           "political_union" : "European Union",
+           "postcode" : "412 66",
+           "road" : "Orangerigatan",
+           "state" : "V\u00e4stra G\u00f6taland County",
+           "suburb" : "\u00d6ver\u00e5s"
+        },
+        "confidence" : 10,
+        "formatted" : "Orangerigatan 2, 412 66 Gothenburg, Sweden",
+        "geometry" : {
+           "lat" : 57.7000229,
+           "lng" : 12.0001108
+        }
+     }
+  ],
+  "status" : {
+     "code" : 200,
+     "message" : "OK"
+  },
+  "stay_informed" : {
+     "blog" : "https://blog.opencagedata.com",
+     "twitter" : "https://twitter.com/OpenCage"
+  },
+  "thanks" : "For using an OpenCage API",
+  "timestamp" : {
+     "created_http" : "Wed, 03 Jun 2020 12:24:42 GMT",
+     "created_unix" : 1591187082
+  },
+  "total_results" : 1
+}

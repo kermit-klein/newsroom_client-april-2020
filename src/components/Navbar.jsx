@@ -8,6 +8,7 @@ const Navbar = () => {
   const { t } = useTranslation();
   let categories = [
     t("Current"),
+    t("Local"),
     t("World"),
     t("Politics"),
     t("Economy"),
