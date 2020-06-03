@@ -1,6 +1,14 @@
 describe("visitor can view articles basen on location", () => {
+  before(() => {
+    cy.wait(200)
+  })
   beforeEach(() => {
     cy.server();
+    cy.route({
+      method: "GET",
+      url: "https://api.opencagedata.com/geocode/v1*",
+      response: "fixture:open_cage.json",
+    });
     cy.route({
       method: "GET",
       url: "http://localhost:3000/api/articles",
@@ -15,8 +23,10 @@ describe("visitor can view articles basen on location", () => {
 
   it("Local category shows only local news", () => {
     cy.get("#local").click();
-    cy.get("#article-1").should("contain", "Title 1");
-    cy.get("#article-2").should("contain", "Title 2");
+    cy.get("#articleCards").should("contain", "Title 1");
+    cy.get("#articleCards").should("contain", "Title 1");
+    cy.get("#articleCards").should("not.contain", "Title 3");
+    cy.get("#articleCards").should("not.contain", "Title 4");
   });
 
   it("But without location a message is shown instead", () => {

@@ -6,12 +6,13 @@ import Ad from "./Ad";
 import mercedesImg from "../images/mercedesAd.jpg";
 import lagavulinImg from "../images/lagavulinAd.jpg";
 import '../css/article.css'
-import { connect } from 'react-redux'
-import { getPlace } from '../modules/location'
+import { connect, useSelector } from 'react-redux'
+
 
 const ArticleList = (props) => {
   const [articleList, setArticleList] = useState([]);
-  const category = props.match.params.category || "";
+  const category = props.match.params.category || ""
+  let location = useSelector(state => state.country)
 
   useEffect(() => {
     const fetchArticleList = async () => {
@@ -23,16 +24,14 @@ const ArticleList = (props) => {
       }
     };
     fetchArticleList();
-    //wrap in try catch?
-    if (category == "local") {
-      getPlace(props.dispatch)
-    }
   }, []);
 
   let filteredArticles = () => {
     switch (category) {
       case "":
         return articleList;
+      case 'local':
+        return articleList.filter(article =>  article.location === location)
       case "current":
         return articleList.filter((article) => {
           return Date.now() - Date.parse(article.published_at) < 86400000;
@@ -48,7 +47,7 @@ const ArticleList = (props) => {
 
   return (
     <div>
-      <Grid fluid columns={3} divided centered>
+      <Grid id="articleCards" fluid columns={3} divided centered>
         <Ad
           link={"https://www.mercedes-benz.com/en/"}
           id={"ad-1"}

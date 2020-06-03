@@ -8,7 +8,7 @@
       "premium": false,
       "category": "other",
       "image": "https://picsum.photos/400/300",
-      "location": "SE"
+      "location": "Sweden"
     },
 
     {
@@ -19,7 +19,7 @@
       "premium": false,
       "category": "other",
       "image": "https://picsum.photos/400/300",
-      "location": "SE"
+      "location": "Sweden"
     },
     {
       "id": 3,
@@ -29,7 +29,7 @@
       "premium": false,
       "category": "other",
       "image": "https://picsum.photos/400/300",
-      "location": "NO"
+      "location": "Norway"
     },
     {
       "id": 4,
@@ -39,7 +39,7 @@
       "premium": false,
       "category": "other",
       "image": "https://picsum.photos/400/300",
-      "location": "NO"
+      "location": "Norway"
     },
     {
       "id": 5,
@@ -49,7 +49,7 @@
       "premium": false,
       "category": "other",
       "image": "https://picsum.photos/400/300",
-      "location": "DK"
+      "location": "Denmark"
     }
   ]
 }

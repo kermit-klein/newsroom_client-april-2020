@@ -8,10 +8,19 @@ import CreateSubscription from "./components/CreateSubscription";
 import LoginForm from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
 import { connect } from "react-redux";
+import { getPlace } from './modules/location'
 
 const App = (props) => {
   const [uid, setUid] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
+
+  useEffect(() => {
+    try {
+      getPlace(props.dispatch)
+    } catch (error) {
+      console.log(error)
+    }
+  },[])
 
   return (
     <>
