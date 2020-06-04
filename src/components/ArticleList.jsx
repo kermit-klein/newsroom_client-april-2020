@@ -39,7 +39,7 @@ const ArticleList = (props) => {
   };
 
   let articleCards = filteredArticles().map((article) => {
-    return <ArticleCard article={article} />;
+    return <ArticleCard article={article} size={1}/>;
   });
 
   return (
