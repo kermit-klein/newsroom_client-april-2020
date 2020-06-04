@@ -15,11 +15,7 @@ const App = (props) => {
   const [authenticated, setAuthenticated] = useState(false);
 
   useEffect(() => {
-    try {
-      getPlace(props.dispatch);
-    } catch (error) {
-      console.log(error);
-    }
+    getPlace(props.dispatch);
   }, []);
 
   return (
