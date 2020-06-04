@@ -8,7 +8,7 @@ describe("visitor can view articles basen on location", () => {
       url: "http://localhost:3000/api/articles",
       response: "fixture:article_list_location.json",
     });
-    cy.visit("/");
+    cy.visit("/", stubLocation({ latitude: 60, longitude: 18 }));
   });
 
   it("by visiting the 'local' category", () => {
