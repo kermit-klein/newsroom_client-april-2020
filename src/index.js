@@ -18,7 +18,6 @@ if (process.env.NODE_ENV === "production") {
   axios.defaults.baseURL = process.env.REACT_APP_LOCALURL;
 }
 
-const store = configureStore();
 ReactDOM.render(
   <Provider store={store}>
     <StripeProvider apiKey={process.env.REACT_APP_API_KEY}>
