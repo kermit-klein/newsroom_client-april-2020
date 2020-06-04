@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Grid, Container, Image } from "semantic-ui-react";
-import { connect, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import Ad from "./Ad";
 import mercedesImg from "../images/mercedesAd.jpg";
@@ -13,12 +13,13 @@ const SingleArticle = (props) => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const { t } = useTranslation();
-  const article = useSelector( state => state.activeArticle );
+  const article = useSelector( state => state.articles.activeArticle );
 
   useEffect(async () => {
     try {
       const response = await axios.get(`/articles/${id}`);
       dispatch({ type: "SET_ACTIVE_ARTICLE", payload: response.data.article });
+      debugger
     } catch (error) {}
   }, []);
 
@@ -69,4 +70,4 @@ const SingleArticle = (props) => {
     </Container>
   );
 };
-export default connect()(SingleArticle);
+export default SingleArticle;
