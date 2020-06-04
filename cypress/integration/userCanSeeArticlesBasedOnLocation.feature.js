@@ -5,11 +5,6 @@ describe("visitor can view articles basen on location", () => {
     cy.server();
     cy.route({
       method: "GET",
-      url: "https://api.opencagedata.com/geocode/v1*",
-      response: "fixture:open_cage.json",
-    });
-    cy.route({
-      method: "GET",
       url: "http://localhost:3000/api/articles",
       response: "fixture:article_list_location.json",
     });
@@ -35,14 +30,10 @@ describe("Visitor can't see local news when location is null", () => {
     cy.server();
     cy.route({
       method: "GET",
-      url: "https://api.opencagedata.com/geocode/v1*",
-    });
-    cy.route({
-      method: "GET",
       url: "http://localhost:3000/api/articles",
       response: "fixture:article_list_location.json",
     });
-    cy.visit("/", stubLocation({ latitude: [], longitude: [] }));
+    cy.visit("/", stubLocation({ latitude: undefined, longitude: undefined }));
   });
 
   it("undefined location message is shown instead", () => {

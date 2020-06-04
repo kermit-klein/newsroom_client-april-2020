@@ -8,7 +8,7 @@ import CreateSubscription from "./components/CreateSubscription";
 import LoginForm from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
 import { connect } from "react-redux";
-import { getPlace } from './modules/location'
+import { getPlace } from "./modules/location";
 
 const App = (props) => {
   const [uid, setUid] = useState("");
@@ -16,11 +16,11 @@ const App = (props) => {
 
   useEffect(() => {
     try {
-      getPlace(props.dispatch)
+      getPlace(props.dispatch);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  },[])
+  }, []);
 
   return (
     <>
@@ -28,7 +28,8 @@ const App = (props) => {
         uid={uid}
         authenticated={authenticated}
         setAuthenticated={setAuthenticated}
-      ><Suspense fallback={<div>Loading</div>}/>
+      >
+        <Suspense fallback={<div>Loading</div>} />
       </Header>
       <Navbar />
       <Switch>

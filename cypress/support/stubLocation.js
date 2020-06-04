@@ -2,8 +2,8 @@ const stubLocation = (options) => ({
   onBeforeLoad(win) {
     const stubLocation = {
       coords: {
-        latitude: options.latitude || null,
-        longitude: options.longitude || null,
+        latitude: options.latitude,
+        longitude: options.longitude,
       },
     };
     cy.stub(win.navigator.geolocation, "getCurrentPosition").callsFake(

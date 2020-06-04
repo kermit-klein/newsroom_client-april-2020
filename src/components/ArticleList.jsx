@@ -26,7 +26,7 @@ const ArticleList = (props) => {
   }, []);
 
   let filteredArticles = () => {
-    switch ((category, location)) {
+    switch (category) {
       case "":
         return articleList;
       case "local":
@@ -47,11 +47,11 @@ const ArticleList = (props) => {
   let locationMessage =
     category == "local" &&
     (location ? (
-      <p id="location">
+      <p id="location" style={{ color: "black" }}>
         Showing news from <strong>{location}</strong>
       </p>
     ) : (
-      <p id="no-location">
+      <p id="no-location" style={{ color: "black" }}>
         Unable to get your location, showing international news instead
       </p>
     ));
