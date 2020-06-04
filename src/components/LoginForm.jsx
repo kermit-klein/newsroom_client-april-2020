@@ -19,6 +19,7 @@ const LoginForm = (props) => {
         e.target.email.value,
         e.target.password.value
       );
+
       if (response.success) {
         props.setUid(response.data.uid);
         props.setAuthenticated(true);
@@ -46,7 +47,9 @@ const LoginForm = (props) => {
     <>
       <Grid className="login-container" verticalAlign="middle">
         <Grid.Column align="center">
-          <h3 id="error-message">{errorMessage}</h3>
+          <h3 style={{ color: "black" }} id="error-message">
+            {errorMessage}
+          </h3>
           <Form unstackable id="login-form" onSubmit={login}>
             <h1>{t("Log in")}</h1>
             <h4>{t("Email")}</h4>

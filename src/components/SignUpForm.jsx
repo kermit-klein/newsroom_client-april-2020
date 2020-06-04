@@ -19,7 +19,8 @@ const SignUpForm = (props) => {
         password: e.target.password.value,
         password_confirmation: e.target.passwordConfirmation.value,
       });
-      if (response.data.success) {
+
+      if (response.data.status === "success") {
         props.setUid(response.data.uid);
         history.push("/sign_in");
         props.dispatch({
@@ -30,7 +31,7 @@ const SignUpForm = (props) => {
     } catch (error) {
       props.dispatch({
         type: "SIGNUP_MESSAGE",
-        payload: { signupMessage: error.response.data.errors[0] },
+        payload: { signupMessage: error.response.data.errors.full_messages },
       });
     }
   };
@@ -40,7 +41,7 @@ const SignUpForm = (props) => {
       <Grid className="signup-container" verticalAlign="middle">
         <Grid.Column align="center">
           {signupMessage !== "" && (
-            <h3 id="error-message">
+            <h3 style={{ color: "black" }} id="error-message">
               {signupMessage}
               <br />
             </h3>
