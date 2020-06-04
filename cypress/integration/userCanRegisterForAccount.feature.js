@@ -40,7 +40,7 @@ describe("User can register for an account", () => {
         url: "**/auth",
         response: {
           success: false,
-          errors: ["doesn't match Password"],
+          errors: { full_messages: "doesn't match Password" },
         },
         status: 422,
       });
