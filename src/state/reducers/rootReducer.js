@@ -8,6 +8,11 @@ const rootReducer = (state = initialState, action) => {
         country: action.payload.country,
         city: action.payload.city,
       };
+    case "SIGNUP_MESSAGE":
+      return {
+        ...state,
+        signupMessage: action.payload.signupMessage,
+      };
     default:
       return state;
   }

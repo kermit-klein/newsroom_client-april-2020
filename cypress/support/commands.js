@@ -22,6 +22,9 @@ Cypress.Commands.add("logIn", () => {
       uid: "user@mail.com",
     },
   });
+  cy.get("#language").contains("EN").click();
+  cy.wait(2000);
+  cy.get("a > #login").click();
   cy.get("a > #login").click();
   cy.get("#login-form").within(() => {
     cy.get("#email").type("user@mail.com");

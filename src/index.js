@@ -11,16 +11,22 @@ import { Provider } from "react-redux";
 import configureStore from "./state/store/configureStore";
 
 axios.defaults.baseURL = "http://localhost:3000/api";
+const store = configureStore();
+if (process.env.NODE_ENV === "production") {
+  axios.defaults.baseURL = process.env.REACT_APP_HEROKUURL;
+} else if (process.env.NODE_ENV === "development") {
+  axios.defaults.baseURL = process.env.REACT_APP_LOCALURL;
+}
 
 const store = configureStore();
 ReactDOM.render(
-  <StripeProvider apiKey="pk_test_21nBNjeqdyB1Mzm2VjDPQprF00kyEKYZSK">
-    <Provider store={store}>
+  <Provider store={store}>
+    <StripeProvider apiKey={process.env.REACT_APP_API_KEY}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </Provider>
-  </StripeProvider>,
+    </StripeProvider>
+  </Provider>,
   document.getElementById("root")
 );
 

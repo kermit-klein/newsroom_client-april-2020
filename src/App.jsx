@@ -61,4 +61,8 @@ const App = (props) => {
     </>
   );
 };
+<<<<<<< HEAD
 export default connect()(App);
+=======
+export default connect()(App);
+>>>>>>> 666a052bbf207f3a15ea35be8f41b69cd35ec977
