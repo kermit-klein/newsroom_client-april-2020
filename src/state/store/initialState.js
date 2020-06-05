@@ -1,5 +1,5 @@
 const initialState = {
-  activeArticle: {}
+  activeArticle: {},
+  signupMessage: "",
 };
-
 export default initialState;

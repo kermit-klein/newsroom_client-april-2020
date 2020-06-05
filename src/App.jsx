@@ -8,7 +8,6 @@ import CreateSubscription from "./components/CreateSubscription";
 import LoginForm from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
 
-
 const App = () => {
   const [uid, setUid] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
