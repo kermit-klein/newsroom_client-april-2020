@@ -25,7 +25,6 @@ const ArticleCard = ({ article, size }) => {
       >
         <Image
           src={article.image}
-          wrapped
           style={{ height: 200 * size, width: 400 * size }}
         />
         <h5 className="article-title">{article.title}</h5>

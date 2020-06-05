@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 const ArticleList = (props) => {
   const [articleList, setArticleList] = useState([]);
   const category = props.match.params.category || "";
-  let location = useSelector((state) => state.country);
+  let location = useSelector((state) => state.location.country);
 
   useEffect(() => {
     const fetchArticleList = async () => {
