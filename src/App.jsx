@@ -7,15 +7,16 @@ import Navbar from "./components/Navbar";
 import CreateSubscription from "./components/CreateSubscription";
 import LoginForm from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getPlace } from "./modules/location";
 
 const App = (props) => {
   const [uid, setUid] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getPlace(props.dispatch);
+    getPlace(dispatch);
   }, []);
 
   return (
@@ -61,4 +62,4 @@ const App = (props) => {
     </>
   );
 };
-export default connect()(App);
+export default App;
