@@ -47,11 +47,11 @@ const ArticleList = (props) => {
   let locationMessage =
     category == "local" &&
     (location ? (
-      <p id="location" style={{ color: "black" }}>
+      <p id="location" style={{ color: "black", fontSize: 20 }}>
         Showing news from <strong>{location}</strong>
       </p>
     ) : (
-      <p id="no-location" style={{ color: "black" }}>
+      <p id="no-location" style={{ color: "black", fontSize: 20 }}>
         Unable to get your location, showing international news instead
       </p>
     ));
