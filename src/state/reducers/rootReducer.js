@@ -1,7 +1,13 @@
 import initialState from "../store/initialState";
 
-const rootReducers = (state = initialState, action) => {
+const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    case "SET_LOCATION":
+      return {
+        ...state,
+        country: action.payload.country,
+        city: action.payload.city,
+      };
     case "SIGNUP_MESSAGE":
       return {
         ...state,
@@ -11,5 +17,4 @@ const rootReducers = (state = initialState, action) => {
       return state;
   }
 };
-
-export default rootReducers;
+export default rootReducer;
