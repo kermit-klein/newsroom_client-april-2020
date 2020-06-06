@@ -19,9 +19,10 @@ describe("visitor can click on button to scroll to top of page", () => {
 
   it('succussfully clicks button to scroll up', () => {
     cy.scrollTo(0, 500);
-    cy.get(".scrollTop").click(); 
+    cy.get(".scrollTop").click();
+    cy.wait(3000); 
     cy.window().then(($window) => {
-      expect($window.scrollY).to.be.closeTo(0, 100);
+      expect($window.scrollY).to.be.closeTo(0, 10);
     });
   }); 
 });
