@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from "react";
+import React, { useState, Suspense, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import ArticleList from "./components/ArticleList";
 import Header from "./components/Header";
@@ -7,12 +7,19 @@ import Navbar from "./components/Navbar";
 import CreateSubscription from "./components/CreateSubscription";
 import LoginForm from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
-
-
+import { useDispatch } from "react-redux";
+import { getPlace } from "./modules/location";
+import { persistLogin } from "./modules/auth";
 
 const App = () => {
   const [uid, setUid] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
+  const dispatch = useDispatch();
+
+  useEffect(async () => {
+    getPlace(dispatch);
+    persistLogin(setAuthenticated, setUid);
+  }, []);
 
   return (
     <>
@@ -20,7 +27,8 @@ const App = () => {
         uid={uid}
         authenticated={authenticated}
         setAuthenticated={setAuthenticated}
-      ><Suspense fallback={<div>Loading</div>}/>
+      >
+        <Suspense fallback={<div>Loading</div>} />
       </Header>
       <Navbar />
       <Switch>
@@ -31,9 +39,10 @@ const App = () => {
           render={() => <SingleArticle authenticated={authenticated} />}
         ></Route>
         <Route exact path="/category/:category" component={ArticleList}></Route>
-        <Route exact path="/subscription" render={() => (
-            <CreateSubscription authenticated={authenticated}/>
-          )}
+        <Route
+          exact
+          path="/subscription"
+          render={() => <CreateSubscription authenticated={authenticated} />}
         ></Route>
         <Route
           exact

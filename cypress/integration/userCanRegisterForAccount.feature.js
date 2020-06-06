@@ -16,6 +16,7 @@ describe("User can register for an account", () => {
         response: "fixture:successful_signup.json",
       });
       cy.visit("/");
+      cy.get("#language").contains("EN").click();
       cy.get("button#login").click();
       cy.get("#signup").click();
       cy.get("#signup-form").within(() => {
@@ -39,11 +40,12 @@ describe("User can register for an account", () => {
         url: "**/auth",
         response: {
           success: false,
-          errors: ["doesn't match Password"],
+          errors: { full_messages: "doesn't match Password" },
         },
         status: 422,
       });
       cy.visit("/");
+      cy.get("#language").contains("EN").click();
       cy.get("button#login").click();
       cy.get("#signup").click();
       cy.get("#signup-form").within(() => {
