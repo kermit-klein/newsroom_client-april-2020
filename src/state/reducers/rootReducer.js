@@ -1,20 +1,12 @@
-import initialState from "../store/initialState";
+import { combineReducers } from 'redux';
+import articleReducer from './articleReducer';
+import messageReducer from './messageReducer';
+import locationReducer from './locationReducer';
 
-const rootReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case "SET_LOCATION":
-      return {
-        ...state,
-        country: action.payload.country,
-        city: action.payload.city,
-      };
-    case "SIGNUP_MESSAGE":
-      return {
-        ...state,
-        signupMessage: action.payload.signupMessage,
-      };
-    default:
-      return state;
-  }
-};
+const rootReducer = combineReducers({
+  articles: articleReducer,
+  messages: messageReducer,
+  location: locationReducer
+})
+
 export default rootReducer;

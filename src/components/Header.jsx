@@ -2,7 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Grid, Button } from "semantic-ui-react";
 import { Link, useHistory } from "react-router-dom";
-import auth from "../modules/auth.js";
+import { auth } from "../modules/auth.js";
 import "../css/Header.css";
 import "../i18n";
 

@@ -12,7 +12,7 @@ import ScrollArrow from "./ScrollArrow";
 const ArticleList = (props) => {
   const [articleList, setArticleList] = useState([]);
   const category = props.match.params.category || "";
-  let location = useSelector((state) => state.country);
+  let location = useSelector((state) => state.location.country);
 
   useEffect(() => {
     const fetchArticleList = async () => {
@@ -42,7 +42,7 @@ const ArticleList = (props) => {
   };
 
   let articleCards = filteredArticles().map((article) => {
-    return <ArticleCard article={article} />;
+    return <ArticleCard article={article} size={1}/>;
   });
 
   let locationMessage =
