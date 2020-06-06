@@ -7,9 +7,11 @@ import mercedesImg from "../images/mercedesAd.jpg";
 import lagavulinImg from "../images/lagavulinAd.jpg";
 import "../css/article.css";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 const ArticleList = (props) => {
   const [articleList, setArticleList] = useState([]);
+  const { t } = useTranslation();
   const category = props.match.params.category || "";
   let location = useSelector((state) => state.location.country);
 
@@ -41,18 +43,18 @@ const ArticleList = (props) => {
   };
 
   let articleCards = filteredArticles().map((article) => {
-    return <ArticleCard article={article} size={1}/>;
+    return <ArticleCard article={article} size={1} />;
   });
 
   let locationMessage =
     category == "local" &&
     (location ? (
       <p id="location" style={{ color: "black", fontSize: 20 }}>
-        Showing news from <strong>{location}</strong>
+        {t("Showing news from")} <strong>{location}</strong>
       </p>
     ) : (
       <p id="no-location" style={{ color: "black", fontSize: 20 }}>
-        Unable to get your location, showing international news instead
+        {t("Unable to get your location, showing international news instead")}
       </p>
     ));
 

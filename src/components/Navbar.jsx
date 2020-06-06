@@ -5,40 +5,43 @@ import "../css/Navbar.css";
 import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
-  const [activeItem, setActiveItem] = useState("home")
+  const [activeItem, setActiveItem] = useState("home");
   const { t } = useTranslation();
   let categories = [
-    t("Current"),
-    t("Local"),
-    t("World"),
-    t("Politics"),
-    t("Economy"),
-    t("Sport"),
-    t("Entertainment"),
-    t("Other"),
+    [t("Current"), "Current"],
+    [t("Local"), "Local"],
+    [t("World"), "World"],
+    [t("Politics"), "Politics"],
+    [t("Economy"), "Economy"],
+    [t("Sport"), "Sport"],
+    [t("Entertainment"), "Entertainment"],
+    [t("Other"), "Other"],
   ];
 
   const handleItemClick = (e, { name }) => {
-    setActiveItem(name)
-  }
+    setActiveItem(name);
+  };
 
   let renderCategories = categories.map((cat) => {
     return (
-      <Menu.Item name={cat} active={ activeItem === cat } onClick={handleItemClick}>
-        <NavLink to={`/category/${cat.toLowerCase()}`} id={cat.toLowerCase()}>
-          {cat}
+      <Menu.Item
+        name={cat[0]}
+        active={activeItem === cat[0]}
+        onClick={handleItemClick}
+      >
+        <NavLink
+          to={`/category/${cat[1].toLowerCase()}`}
+          id={cat[1].toLowerCase()}
+        >
+          {cat[0]}
         </NavLink>
       </Menu.Item>
     );
   });
 
   return (
-    <div style={{backgroundColor: "teal"}}>
-      <Menu
-        id="navbar"
-        inverted pointing secondary
-        width={10}
-      >
+    <div style={{ backgroundColor: "teal" }}>
+      <Menu id="navbar" inverted pointing secondary width={10}>
         <Menu.Item></Menu.Item>
         <Menu.Item name="home" active={activeItem === "home"}>
           <NavLink to="/">
