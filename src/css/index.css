@@ -26,13 +26,17 @@ p {
   justify-content: space-evenly;
   padding: 20px;
   background-color: #409d9b;
-  min-height: 35vh;
+  height: 330px;
   width: 300px;
   border-radius: 10px;
   color: white;
 }
 
 #login-form > * {
+  margin: 1px;
+}
+
+#signup-form > * {
   margin: 1px;
 }
 

@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 
 const LoginForm = (props) => {
   const [errorMessage, setErrorMessage] = useState("");
-  const signupMessage = useSelector((state) => state.signupMessage);
+  const signupMessage = useSelector((state) => state.messages.signupMessage);
   const history = useHistory();
   const { t } = useTranslation();
 
