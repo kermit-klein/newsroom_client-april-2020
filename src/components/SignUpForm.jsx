@@ -1,13 +1,14 @@
 import React from "react";
 import { Grid, Button, Form, Input } from "semantic-ui-react";
-import auth from "../modules/auth";
+import { auth } from "../modules/auth";
 import { useHistory } from "react-router-dom";
 import "../css/index.css";
 import { useTranslation } from "react-i18next";
-import { connect, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const SignUpForm = (props) => {
-  const signupMessage = useSelector((state) => state.signupMessage);
+  const signupMessage = useSelector((state) => state.messages.signupMessage);
+  const dispatch = useDispatch()
   const history = useHistory();
   const { t, i18n } = useTranslation();
 
@@ -23,14 +24,14 @@ const SignUpForm = (props) => {
       if (response.data.status === "success") {
         props.setUid(response.data.uid);
         history.push("/sign_in");
-        props.dispatch({
-          type: "SIGNUP_MESSAGE",
+        dispatch({
+          type: "SET_SIGNUP_MESSAGE",
           payload: { signupMessage: response.data.message },
         });
       }
     } catch (error) {
-      props.dispatch({
-        type: "SIGNUP_MESSAGE",
+      dispatch({
+        type: "SET_SIGNUP_MESSAGE",
         payload: { signupMessage: error.response.data.errors.full_messages },
       });
     }
@@ -38,7 +39,7 @@ const SignUpForm = (props) => {
 
   return (
     <>
-      <Grid className="signup-container" verticalAlign="middle">
+      <Grid className="login-container" verticalAlign="middle">
         <Grid.Column align="center">
           {signupMessage !== "" && (
             <h3 style={{ color: "black" }} id="error-message">
@@ -68,4 +69,4 @@ const SignUpForm = (props) => {
     </>
   );
 };
-export default connect()(SignUpForm);
+export default SignUpForm;

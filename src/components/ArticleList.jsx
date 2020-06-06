@@ -11,9 +11,9 @@ import { useTranslation } from "react-i18next";
 
 const ArticleList = (props) => {
   const [articleList, setArticleList] = useState([]);
-  const category = props.match.params.category || "";
   const { t } = useTranslation();
-  let location = useSelector((state) => state.country);
+  const category = props.match.params.category || "";
+  let location = useSelector((state) => state.location.country);
 
   useEffect(() => {
     const fetchArticleList = async () => {
@@ -43,7 +43,7 @@ const ArticleList = (props) => {
   };
 
   let articleCards = filteredArticles().map((article) => {
-    return <ArticleCard article={article} />;
+    return <ArticleCard article={article} size={1} />;
   });
 
   let locationMessage =

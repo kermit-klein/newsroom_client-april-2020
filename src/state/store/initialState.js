@@ -1,4 +1,5 @@
 const initialState = {
+  activeArticle: {},
   city: "",
   country: "",
   signupMessage: "",

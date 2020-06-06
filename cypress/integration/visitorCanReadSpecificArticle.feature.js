@@ -18,9 +18,9 @@ describe("visitor can read a specific article", () => {
   });
 
   it("article is displayed", () => {
-    cy.get("#article-1-title").should("contain", "Title 1");
+    cy.get(".article-title").should("contain", "Title 1");
     cy.get("#article-1-date").should("contain", "2020-02-20 02:02");
     cy.get("#article-1-body").should("contain", "Lorem ipsum");
-    cy.get("#article-1").should("not.exist")
+    cy.get("#article-2").should("not.exist")
   });
 });

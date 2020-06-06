@@ -9,14 +9,16 @@ import LoginForm from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
 import { useDispatch } from "react-redux";
 import { getPlace } from "./modules/location";
+import { persistLogin } from "./modules/auth";
 
-const App = (props) => {
+const App = () => {
   const [uid, setUid] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  useEffect(async () => {
     getPlace(dispatch);
+    persistLogin(setAuthenticated, setUid);
   }, []);
 
   return (
