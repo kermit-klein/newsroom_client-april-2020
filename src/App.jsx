@@ -9,14 +9,27 @@ import LoginForm from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
 import { useDispatch } from "react-redux";
 import { getPlace } from "./modules/location";
+import auth from "./modules/auth";
 
 const App = (props) => {
   const [uid, setUid] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  useEffect(async () => {
     getPlace(dispatch);
+    if (localStorage.hasOwnProperty("J-tockAuth-Storage")) {
+      const tokenParams = JSON.parse(
+        localStorage.getItem("J-tockAuth-Storage")
+      );
+      try {
+        const response = await auth.validateToken(tokenParams);
+        setAuthenticated(response.success);
+        setUid(response.data.uid);
+      } catch (error) {
+        console.log(error);
+      }
+    }
   }, []);
 
   return (
