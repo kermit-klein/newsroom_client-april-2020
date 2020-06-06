@@ -17,11 +17,11 @@ describe("User can purchase a subscription on the subscribe page", () => {
         response: { message: "Transaction was successful" },
       });
       cy.logIn();
+      cy.wait(3000)
       cy.get("#subscription-link").contains("Subscribe").click();
     });
 
     it("by filling out payment form", () => {
-      cy.wait(3000);
       cy.get("#payment-interface").should("be.visible");
       cy.wait(3000);
       cy.typeInStripeElement("cardnumber", "4242424242424242");
@@ -62,6 +62,7 @@ describe("User can purchase a subscription on the subscribe page", () => {
 
     it("by entering incomplete data", () => {
       cy.logIn();
+      cy.wait(3000);
       cy.get("#subscription-link").contains("Subscribe").click();
       cy.wait(3000);
       cy.typeInStripeElement("cardnumber", "4242424242424242");
