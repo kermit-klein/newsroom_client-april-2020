@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Button, Form, Input } from "semantic-ui-react";
-import auth from "../modules/auth";
+import { auth } from "../modules/auth";
 import { useHistory } from "react-router-dom";
 import "../css/index.css";
 import { useTranslation } from "react-i18next";
