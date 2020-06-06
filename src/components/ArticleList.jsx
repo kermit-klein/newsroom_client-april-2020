@@ -79,7 +79,7 @@ const ArticleList = (props) => {
           />
         </Grid>
       </div>
-      <div id='scroll-arrow'>
+      <div>
         <ScrollArrow />
       </div>
     </>

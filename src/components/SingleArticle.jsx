@@ -5,9 +5,9 @@ import Ad from "./Ad";
 import mercedesImg from "../images/mercedesAd.jpg";
 import PremiumBlocker from "./PremiumBlocker";
 import { useParams } from "react-router-dom";
-import '../css/article.css'
+import "../css/article.css";
 import { useTranslation } from "react-i18next";
-
+import ScrollArrow from "./ScrollArrow";
 
 const SingleArticle = (props) => {
   const [article, setArticle] = useState({});
@@ -27,10 +27,7 @@ const SingleArticle = (props) => {
       <Grid stretched>
         <Grid.Row centered>
           <div className="title-image">
-            <Image
-              src={article.image}
-              style={{ height: 400, width: 800 }}
-            />
+            <Image src={article.image} style={{ height: 400, width: 800 }} />
             <h5
               key={article.id}
               id={"article-" + article.id + "-title"}
@@ -46,7 +43,7 @@ const SingleArticle = (props) => {
             id={"article-" + article.id + "-date"}
             className="published-at"
           >
-            {t('Published at')} {article.published_at}
+            {t("Published at")} {article.published_at}
           </p>
         </Grid.Row>
         <Grid.Row centered>
@@ -69,6 +66,9 @@ const SingleArticle = (props) => {
           />
         </Grid.Row>
       </Grid>
+      <div>
+        <ScrollArrow />
+      </div>
     </Container>
   );
 };
