@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Grid, Button, Form, Input } from "semantic-ui-react";
-import auth from "../modules/auth";
+import { auth } from "../modules/auth";
 import { useHistory } from "react-router-dom";
 import "../css/index.css";
 import { Link } from "react-router-dom";
@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 
 const LoginForm = (props) => {
   const [errorMessage, setErrorMessage] = useState("");
-  const signupMessage = useSelector((state) => state.signupMessage);
+  const signupMessage = useSelector((state) => state.messages.signupMessage);
   const history = useHistory();
   const { t } = useTranslation();
 
