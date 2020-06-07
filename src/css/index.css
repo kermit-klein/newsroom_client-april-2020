@@ -44,3 +44,31 @@ a {
   color: white !important;
   font-family: "Quattrocento", serif;
 }
+
+.scrollTop {
+  position: fixed;
+  width: 100vw;
+  bottom: 20px;
+  padding-left: 70%;
+  align-content: flex-end;
+  height: 20px;
+  justify-content: flex-end;
+  z-index: 1000;
+  cursor: pointer;
+  animation: fadeIn 0.3s;
+  transition: opacity 0.4s;
+  opacity: 0.5;
+}
+
+.scrollTop:hover {
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}

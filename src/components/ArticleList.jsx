@@ -7,6 +7,7 @@ import mercedesImg from "../images/mercedesAd.jpg";
 import lagavulinImg from "../images/lagavulinAd.jpg";
 import "../css/article.css";
 import { useSelector } from "react-redux";
+import ScrollArrow from "./ScrollArrow";
 import { useTranslation } from "react-i18next";
 
 const ArticleList = (props) => {
@@ -59,24 +60,31 @@ const ArticleList = (props) => {
     ));
 
   return (
-    <div>
-      <Grid id="articleCards" fluid columns={3} divided centered>
-        <Ad
-          link={"https://www.mercedes-benz.com/en/"}
-          id={"ad-1"}
-          img={mercedesImg}
-          alt={"mercedes"}
-        />
-        {locationMessage}
-        {articleCards}
-        <Ad
-          link={"https://www.malts.com/en-gb/visit-our-distilleries/lagavulin/"}
-          id={"ad-2"}
-          img={lagavulinImg}
-          alt={"lagavulin"}
-        />
-      </Grid>
-    </div>
+    <>
+      <div>
+        <Grid id="articleCards" fluid columns={3} divided centered>
+          <Ad
+            link={"https://www.mercedes-benz.com/en/"}
+            id={"ad-1"}
+            img={mercedesImg}
+            alt={"mercedes"}
+          />
+          {locationMessage}
+          {articleCards}
+          <Ad
+            link={
+              "https://www.malts.com/en-gb/visit-our-distilleries/lagavulin/"
+            }
+            id={"ad-2"}
+            img={lagavulinImg}
+            alt={"lagavulin"}
+          />
+        </Grid>
+      </div>
+      <div>
+        <ScrollArrow />
+      </div>
+    </>
   );
 };
 
