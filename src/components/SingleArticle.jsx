@@ -1,38 +1,39 @@
 import React, { useEffect } from "react";
 import { Grid, Container } from "semantic-ui-react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
 import Ad from "./Ad";
 import mercedesImg from "../images/mercedesAd.jpg";
 import PremiumBlocker from "./PremiumBlocker";
-import ArticleCard from './ArticleCard'
+import { useParams } from "react-router-dom";
 import "../css/article.css";
+import ScrollArrow from "./ScrollArrow";
+import ArticleCard from "./ArticleCard";
 
 const SingleArticle = (props) => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const { t } = useTranslation();
-  const article = useSelector( state => state.articles.activeArticle );
+  const article = useSelector((state) => state.articles.activeArticle);
 
   const chooseArticle = async () => {
     try {
       const response = await axios.get(`/articles/${id}`);
       dispatch({ type: "SET_ACTIVE_ARTICLE", payload: response.data.article });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
-    chooseArticle()
+    chooseArticle();
   }, []);
 
   return (
     <Container align="center" style={{ paddingTop: "45px", width: "55%" }}>
       <Grid stretched>
-        <ArticleCard article={article} size={2}/>
+        <ArticleCard article={article} size={2} />
         <Grid.Row centered>
           <p
             key={article.id}
@@ -62,6 +63,9 @@ const SingleArticle = (props) => {
           />
         </Grid.Row>
       </Grid>
+      <div>
+        <ScrollArrow />
+      </div>
     </Container>
   );
 };

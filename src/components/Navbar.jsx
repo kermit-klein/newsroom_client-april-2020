@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Menu } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
 import "../css/Navbar.css";
@@ -12,21 +12,24 @@ const Navbar = () => {
 
   const { t } = useTranslation();
   let categories = [
-    t("Current"),
-    t("Local"),
-    t("World"),
-    t("Politics"),
-    t("Economy"),
-    t("Sport"),
-    t("Entertainment"),
-    t("Other"),
+    [t("Current"), "Current"],
+    [t("Local"), "Local"],
+    [t("World"), "World"],
+    [t("Politics"), "Politics"],
+    [t("Economy"), "Economy"],
+    [t("Sport"), "Sport"],
+    [t("Entertainment"), "Entertainment"],
+    [t("Other"), "Other"],
   ];
 
   let renderCategories = categories.map((cat) => {
     return (
-      <Menu.Item name={cat} active={activeItem === cat.toLowerCase()}>
-        <NavLink to={`/category/${cat.toLowerCase()}`} id={cat.toLowerCase()}>
-          {cat}
+      <Menu.Item name={cat[0]} active={activeItem === cat[0].toLowerCase()}>
+        <NavLink
+          to={`/category/${cat[1].toLowerCase()}`}
+          id={cat[1].toLowerCase()}
+        >
+          {cat[0]}
         </NavLink>
       </Menu.Item>
     );
