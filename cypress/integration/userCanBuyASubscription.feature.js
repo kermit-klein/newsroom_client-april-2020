@@ -1,4 +1,4 @@
-describe("User can purchase a subscription on the subscribe page", () => {
+describe.only("User can purchase a subscription on the subscribe page", () => {
   beforeEach(() => {
     cy.stubMain();
   });
@@ -10,7 +10,7 @@ describe("User can purchase a subscription on the subscribe page", () => {
         url: "**/subscriptions",
         response: { message: "Transaction was successful" },
       });
-      cy.logIn();
+      cy.logIn("user");
       cy.wait(3000)
       cy.get("#subscription-link").contains("Subscribe").click();
     });
@@ -40,7 +40,7 @@ describe("User can purchase a subscription on the subscribe page", () => {
         response: { message: "There was a problem with your transaction" },
         status: 400,
       });
-      cy.logIn();
+      cy.logIn("user");
       cy.wait(3000);
       cy.get("#subscription-link").contains("Subscribe").click();
       cy.wait(3000);
@@ -55,7 +55,7 @@ describe("User can purchase a subscription on the subscribe page", () => {
     });
 
     it("by entering incomplete data", () => {
-      cy.logIn();
+      cy.logIn("user");
       cy.wait(3000);
       cy.get("#subscription-link").contains("Subscribe").click();
       cy.wait(3000);
