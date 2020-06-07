@@ -3,6 +3,7 @@ import axios from "axios";
 import { Grid } from "semantic-ui-react";
 import ArticleCard from "../components/ArticleCard";
 import Ad from "./Ad";
+import Weather from "./Weather";
 import mercedesImg from "../images/mercedesAd.jpg";
 import lagavulinImg from "../images/lagavulinAd.jpg";
 import "../css/article.css";
@@ -58,6 +59,7 @@ const ArticleList = (props) => {
 
   return (
     <div>
+          <Weather />
       <Grid id="articleCards" fluid columns={3} divided centered>
         <Ad
           link={"https://www.mercedes-benz.com/en/"}

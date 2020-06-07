@@ -3,10 +3,10 @@ import { Menu } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
 import "../css/Navbar.css";
 import { useTranslation } from "react-i18next";
-import Weather from "./Weather";
+
 
 const Navbar = () => {
-  const [activeItem, setActiveItem] = useState("home")
+  const [activeItem, setActiveItem] = useState("home");
   const { t } = useTranslation();
   let categories = [
     t("Current"),
@@ -20,12 +20,16 @@ const Navbar = () => {
   ];
 
   const handleItemClick = (e, { name }) => {
-    setActiveItem(name)
-  }
+    setActiveItem(name);
+  };
 
   let renderCategories = categories.map((cat) => {
     return (
-      <Menu.Item name={cat} active={ activeItem === cat } onClick={handleItemClick}>
+      <Menu.Item
+        name={cat}
+        active={activeItem === cat}
+        onClick={handleItemClick}
+      >
         <NavLink to={`/category/${cat.toLowerCase()}`} id={cat.toLowerCase()}>
           {cat}
         </NavLink>
@@ -34,12 +38,8 @@ const Navbar = () => {
   });
 
   return (
-    <div style={{backgroundColor: "teal"}}>
-      <Menu
-        id="navbar"
-        inverted pointing secondary
-        width={10}
-      >
+    <div style={{ backgroundColor: "teal" }}>
+      <Menu id="navbar" inverted pointing secondary width={10}>
         <Menu.Item></Menu.Item>
         <Menu.Item name="home" active={activeItem === "home"}>
           <NavLink to="/">
@@ -47,9 +47,7 @@ const Navbar = () => {
           </NavLink>
         </Menu.Item>
         {renderCategories}
-        <Menu.Item>
-          <Weather />
-        </Menu.Item>
+        <Menu.Item></Menu.Item>
       </Menu>
     </div>
   );

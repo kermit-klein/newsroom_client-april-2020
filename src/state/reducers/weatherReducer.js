@@ -3,7 +3,6 @@ import initialState from "../store/initialState";
 const weatherReducer = (state = initialState, action) => {
   switch (action.type) {
     case "SET_WEATHER":
-      debugger
       return {
         ...state,
         weatherInfo: {

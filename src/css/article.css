@@ -25,3 +25,10 @@
   font-size: 130%;
   color: #888888
 }
+
+#widget {
+  display: inline-flexbox;
+  color: white;
+  font-family: "Quattrocento", serif;
+  background-color: #409d9b;
+}
