@@ -30,7 +30,6 @@ const LoginForm = () => {
       });
       history.goBack();
     } catch (error) {
-      debugger
       setErrorMessage(error.response.data.errors[0]);
     }
   };
@@ -45,7 +44,7 @@ const LoginForm = () => {
         </Link>
       </p>
     ) : (
-      <p id="signedup">{t("Signed up sucessfully!")}</p>
+      <h3 id="signedup">{t("Signed up sucessfully!")}</h3>
     );
 
   return (

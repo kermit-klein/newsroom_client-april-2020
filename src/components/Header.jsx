@@ -71,7 +71,7 @@ const Header = () => {
         <Grid.Column id="login">
           {!authenticated ? (
             <Link name="Login" to={{ pathname: "/sign_in" }}>
-              <Button size="tiny" floated="right" basic inverted id="login">
+              <Button size="small" floated="right" basic inverted id="login">
                 {t("Login")}
               </Button>
             </Link>

@@ -17,7 +17,6 @@ const persistLogin = async (dispatch) => {
     const tokenParams = JSON.parse(localStorage.getItem("J-tockAuth-Storage"));
     try {
       const response = await auth.validateToken(tokenParams);
-      debugger
       dispatch({
         type: "SET_AUTHENTICATED",
         payload: {
