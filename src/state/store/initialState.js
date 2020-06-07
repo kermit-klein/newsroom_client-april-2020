@@ -4,5 +4,8 @@ const initialState = {
   country: "",
   signupMessage: "",
   selectedCategory: "",
+  authenticated: false,
+  subscriber: false,
+  uid: "",
 };
 export default initialState;

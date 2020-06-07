@@ -5,13 +5,14 @@ import { useHistory } from "react-router-dom";
 import "../css/index.css";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
-const LoginForm = (props) => {
+const LoginForm = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const signupMessage = useSelector((state) => state.messages.signupMessage);
   const history = useHistory();
   const { t } = useTranslation();
+  const dispatch = useDispatch()
 
   const login = async (e) => {
     try {
@@ -19,13 +20,17 @@ const LoginForm = (props) => {
         e.target.email.value,
         e.target.password.value
       );
-
-      if (response.success) {
-        props.setUid(response.data.uid);
-        props.setAuthenticated(true);
-        history.goBack();
-      }
+      dispatch({
+        type: "SET_AUTHENTICATED",
+        payload: {
+          authenticated: response.success,
+          role: response.data.role,
+          uid: response.data.uid,
+        },
+      });
+      history.goBack();
     } catch (error) {
+      debugger
       setErrorMessage(error.response.data.errors[0]);
     }
   };
