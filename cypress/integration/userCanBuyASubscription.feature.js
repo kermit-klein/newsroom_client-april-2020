@@ -1,4 +1,4 @@
-describe.only("User can purchase a subscription on the subscribe page", () => {
+describe("User can purchase a subscription on the subscribe page", () => {
   beforeEach(() => {
     cy.stubMain();
   });
