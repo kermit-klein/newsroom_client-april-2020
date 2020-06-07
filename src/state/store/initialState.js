@@ -3,6 +3,6 @@ const initialState = {
   city: "",
   country: "",
   signupMessage: "",
-  category: "",
+  selectedCategory: "",
 };
 export default initialState;

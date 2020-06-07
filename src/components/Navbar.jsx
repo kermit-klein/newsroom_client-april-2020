@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const activeItem = useSelector((state) => {
-    return state.category.category;
+    return state.category.selectedCategory;
   });
 
   const { t } = useTranslation();

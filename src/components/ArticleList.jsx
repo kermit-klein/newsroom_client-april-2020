@@ -65,7 +65,7 @@ const ArticleList = (props) => {
     ));
 
   let loadMoreButton = nextPage &&
-    <Button id="more-btn" onClick={() => fetchBatch()}>Load more</Button>
+    <Button id="more-btn" onClick={() => fetchBatch()}>{t("Show More")}</Button>
 
   return (
     <>

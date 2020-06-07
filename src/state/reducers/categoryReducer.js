@@ -5,7 +5,7 @@ const categoryReducer = (state = initialState, action) => {
     case "SET_CATEGORY":
       return {
         ...state,
-        category: action.payload.category,
+        selectedCategory: action.payload.category,
       };
     default:
       return state;
