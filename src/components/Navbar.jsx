@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { Menu } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
 import "../css/Navbar.css";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
-  const [activeItem, setActiveItem] = useState("home");
+  const activeItem = useSelector((state) => {
+    return state.category.selectedCategory;
+  });
+
   const { t } = useTranslation();
   let categories = [
     [t("Current"), "Current"],
@@ -18,17 +22,9 @@ const Navbar = () => {
     [t("Other"), "Other"],
   ];
 
-  const handleItemClick = (e, { name }) => {
-    setActiveItem(name);
-  };
-
   let renderCategories = categories.map((cat) => {
     return (
-      <Menu.Item
-        name={cat[0]}
-        active={activeItem === cat[0]}
-        onClick={handleItemClick}
-      >
+      <Menu.Item name={cat[0]} active={activeItem === cat[0].toLowerCase()}>
         <NavLink
           to={`/category/${cat[1].toLowerCase()}`}
           id={cat[1].toLowerCase()}
@@ -43,7 +39,7 @@ const Navbar = () => {
     <div style={{ backgroundColor: "teal" }}>
       <Menu id="navbar" inverted pointing secondary width={10}>
         <Menu.Item></Menu.Item>
-        <Menu.Item name="home" active={activeItem === "home"}>
+        <Menu.Item name="home" active={activeItem === ""}>
           <NavLink to="/">
             <span id="logo">DNS</span>
           </NavLink>
