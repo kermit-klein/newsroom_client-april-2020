@@ -16,7 +16,7 @@
   "Local": "Lokalt",
   "World": "Världen",
   "Politics": "Politik",
-  "Economy":  "Ekonomi",
+  "Economy": "Ekonomi",
   "Sport": "Sport",
   "Entertainment": "Nöje",
   "Other": "Övrigt",
@@ -26,7 +26,8 @@
   "Subscribe": "Prenumerera",
   "You are a subscriber!": "Du har en prenumeration!",
   "Become a subscriber today!": "Prenumerera idag!",
-  "Log in or sign up to proceed!": "Logga in eller registrera dig för att fortsätta!"
+  "Log in or sign up to proceed!": "Logga in eller registrera dig för att fortsätta!",
+  "Showing news from": "Visar nyheter från",
+  "Unable to get your location, showing international news instead": "Kan inte att få ditt läge, visar internationella nyheter istället",
+  "Show more": "Visa mer"
 }
-
-  

@@ -1,12 +1,6 @@
 describe("User can purchase a subscription on the subscribe page", () => {
   beforeEach(() => {
-    cy.server();
-    cy.route({
-      method: "GET",
-      url: "http://localhost:3000/api/articles",
-      response: "fixture:article_list.json",
-    });
-    cy.visit("/");
+    cy.stubMain();
   });
 
   describe("Successfully when logged in", () => {

@@ -4,5 +4,6 @@ const initialState = {
   country: "",
   signupMessage: "",
   weatherInfo: {},
+  selectedCategory: "",
 };
 export default initialState;

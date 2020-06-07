@@ -1,15 +1,10 @@
 describe("User can log in for premium content", () => {
   beforeEach(() => {
-    cy.server();
+    cy.stubMain();
   });
 
   describe("User can log in successfully", () => {
     beforeEach(() => {
-      cy.route({
-        method: "GET",
-        url: "http://localhost:3000/api/articles",
-        response: "fixture:article_list.json",
-      });
       cy.route({
         method: "POST",
         url: "http://localhost:3000/api/auth/*",
@@ -52,7 +47,7 @@ describe("User can log in for premium content", () => {
     });
 
     it("and is directed to main page", () => {
-      cy.get("#article-1").should("contain", "title 1");
+      cy.get("#article-60").should("contain", "Evolve extensible metrics");
     });
 
     it("with valid credentials", () => {
@@ -70,7 +65,7 @@ describe("User can log in for premium content", () => {
     it("clicking the Log out button", () => {
       cy.get("#logout").click();
       cy.get("#logout").should("not.exist");
-      expect("#article-1").to.exist;
+      expect("#article-60").to.exist;
     });
   });
 
