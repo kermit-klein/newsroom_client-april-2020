@@ -1,15 +1,10 @@
 describe("User can log in for premium content", () => {
   beforeEach(() => {
-    cy.server();
+    cy.stubMain();
   });
 
   describe("User can log in successfully", () => {
     beforeEach(() => {
-      cy.route({
-        method: "GET",
-        url: "http://localhost:3000/api/articles?page=1*",
-        response: "fixture:dns_home_articles.json",
-      });
       cy.route({
         method: "POST",
         url: "http://localhost:3000/api/auth/*",

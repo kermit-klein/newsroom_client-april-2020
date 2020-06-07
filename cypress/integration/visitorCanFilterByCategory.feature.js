@@ -1,12 +1,6 @@
 describe("Visitor can filter by category", () => {
   beforeEach(() => {
-    cy.server();
-    cy.route({
-      method: "GET",
-      url: "http://localhost:3000/api/articles",
-      response: "fixture:article_category_list.json",
-    });
-    cy.visit("/");
+    cy.stubMain();
   });
 
   it("economy successfully", () => {

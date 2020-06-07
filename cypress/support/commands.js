@@ -34,6 +34,7 @@ Cypress.Commands.add("logIn", () => {
 });
 
 Cypress.Commands.add("stubMain", () => {
+  const stubLocation = require("../support/stubLocation");
   cy.server()
   cy.route({
     method: "GET",
@@ -45,5 +46,10 @@ Cypress.Commands.add("stubMain", () => {
     url: "http://localhost:3000/api/articles?page=1&location=Sweden",
     response: "fixture:dns_home_articles.json",
   });
+  cy.route({
+    method: "GET",
+    url: "http://opencagedata.com/geocode/v1/json?q=60,18&language=en&key=*",
+    response: "fixture:open_cage_stub.json"
+  })
   cy.visit("/", stubLocation({ latitude: 60, longitude: 18 }));
 })

@@ -1,16 +1,10 @@
 describe("visitor can view all listed articles", () => {
   beforeEach(() => {
-    cy.server();
-    cy.route({
-      method: "GET",
-      url: "http://localhost:3000/api/articles",
-      response: "fixture:article_list.json",
-    });
-    cy.visit("/");
+    cy.stubMain();
   });
   it("articles is shown", () => {
-    cy.get("#article-1").should("contain", "title 1");
-    cy.get("#article-2").should("contain", "title 2");
+    cy.get("#article-60").should("contain", "Evolve extensible metrics");
+    cy.get("#article-57").should("contain", "Strategize e-business supply-chains");
   });
   
 });

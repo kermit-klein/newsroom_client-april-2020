@@ -1,12 +1,6 @@
 describe("Visitor can see ads", () => {
   beforeEach(() => {
     cy.stubMain();
-    cy.route({
-      method: "GET",
-      url: "http://localhost:3000/api/articles?page=1",
-      response: "fixture:dns_home_articles.json",
-    });
-    cy.visit("/");
   });
 
   describe("on the index page", () => {

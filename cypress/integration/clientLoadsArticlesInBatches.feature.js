@@ -2,12 +2,7 @@ const stubLocation = require("../support/stubLocation");
 
 describe('Client loads articles in batches', () => {
   beforeEach(() => {
-    cy.server()
-    cy.route({
-      method: "GET",
-      url: "http://localhost:3000/api/articles?page=1&location=Sweden",
-      response: "fixture:dns_home_articles.json",
-    });
+    cy.stubMain();
     cy.route({
       method: "GET",
       url: "http://localhost:3000/api/articles?page=1&location=Sweden&category=economy",
@@ -23,8 +18,6 @@ describe('Client loads articles in batches', () => {
       url: "http://localhost:3000/api/articles?page=2&location=Sweden&category=local",
       response: "fixture:local_page2.json",
     });
-
-    cy.visit("/", stubLocation({ latitude: 60, longitude: 18 }));
   });
 
   it('on the homepage', () => {

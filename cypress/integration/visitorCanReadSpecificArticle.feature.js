@@ -1,11 +1,6 @@
 describe("visitor can read a specific article", () => {
   before(() => {
-    cy.server();
-    cy.route({
-      method: "GET",
-      url: "http://localhost:3000/api/articles",
-      response: "fixture:article_list.json",
-    });
+    cy.stubMain();
     cy.route({
       method: "GET",
       url: "http://localhost:3000/api/articles/1",
