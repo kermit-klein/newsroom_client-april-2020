@@ -3,11 +3,10 @@ describe("visitor can read a specific article", () => {
     cy.stubMain();
     cy.route({
       method: "GET",
-      url: "http://localhost:3000/api/articles/1",
+      url: "http://localhost:3000/api/articles/60",
       response: "fixture:single_article.json",
     });
-    cy.visit("/");
-    cy.get("#article-1").within(() => {
+    cy.get("#article-60").within(() => {
       cy.get(".article-title").click();
     })
   });

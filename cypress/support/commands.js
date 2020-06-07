@@ -48,8 +48,8 @@ Cypress.Commands.add("stubMain", () => {
   });
   cy.route({
     method: "GET",
-    url: "http://opencagedata.com/geocode/v1/json?q=60,18&language=en&key=*",
-    response: "fixture:open_cage_stub.json"
+    url: "https://api.opencagedata.com/geocode/v1/json?q=60,18&language=en&key=**",
+    response: "fixture:open_cage.json"
   })
   cy.visit("/", stubLocation({ latitude: 60, longitude: 18 }));
 })
