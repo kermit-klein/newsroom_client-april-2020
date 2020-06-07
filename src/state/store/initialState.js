@@ -4,15 +4,5 @@ const initialState = {
   country: "",
   signupMessage: "",
   category: "",
-  cached: {
-    current: [],
-    local: [],
-    world: [],
-    politics: [],
-    entertainment: [],
-    economy: [],
-    sport: [],
-    other: []
-  }
 };
 export default initialState;
