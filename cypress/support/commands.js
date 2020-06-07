@@ -32,3 +32,18 @@ Cypress.Commands.add("logIn", () => {
     cy.get("Button").contains("Submit").click();
   });
 });
+
+Cypress.Commands.add("stubMain", () => {
+  cy.server()
+  cy.route({
+    method: "GET",
+    url: "http://localhost:3000/api/articles?page=1",
+    response: "fixture:dns_home_articles.json",
+  });
+  cy.route({
+    method: "GET",
+    url: "http://localhost:3000/api/articles?page=1&location=Sweden",
+    response: "fixture:dns_home_articles.json",
+  });
+  cy.visit("/", stubLocation({ latitude: 60, longitude: 18 }));
+})

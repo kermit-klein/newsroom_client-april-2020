@@ -7,7 +7,7 @@
       "published_at": "2020-06-03 12:31",
       "image": "https://news-room-team-1.s3.eu-north-1.amazonaws.com/rcip9m1qiabhsd3k4kgxeixfd5v1?response-content-disposition=inline%3B%20filename%3D%22image.jpg%22%3B%20filename%2A%3DUTF-8%27%27image.jpg\u0026response-content-type=image%2Fjpeg\u0026X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=AKIAIKNDI6ICZXWA675Q%2F20200607%2Feu-north-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20200607T153811Z\u0026X-Amz-Expires=3600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=e1e0e5572b0da7b21bd7d7d65fadca946977f43565ffc3ad7779a069d070569c",
       "location": "Sweden",
-      "international": false
+      "international": true
     },
     {
       "id": 59,
