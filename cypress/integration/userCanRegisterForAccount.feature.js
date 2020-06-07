@@ -1,11 +1,6 @@
 describe("User can register for an account", () => {
   beforeEach(() => {
-    cy.server();
-    cy.route({
-      method: "GET",
-      url: "**/articles",
-      response: "fixture:article_list.json",
-    });
+    cy.stubMain();
   });
 
   describe("can sign up successfully", () => {

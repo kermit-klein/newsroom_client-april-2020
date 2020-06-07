@@ -32,3 +32,24 @@ Cypress.Commands.add("logIn", () => {
     cy.get("Button").contains("Submit").click();
   });
 });
+
+Cypress.Commands.add("stubMain", () => {
+  const stubLocation = require("../support/stubLocation");
+  cy.server()
+  cy.route({
+    method: "GET",
+    url: "http://localhost:3000/api/articles?page=1",
+    response: "fixture:dns_home_articles.json",
+  });
+  cy.route({
+    method: "GET",
+    url: "http://localhost:3000/api/articles?page=1&location=Sweden",
+    response: "fixture:dns_home_articles.json",
+  });
+  cy.route({
+    method: "GET",
+    url: "https://api.opencagedata.com/geocode/v1/json?q=60,18&language=en&key=**",
+    response: "fixture:open_cage.json"
+  })
+  cy.visit("/", stubLocation({ latitude: 60, longitude: 18 }));
+})
