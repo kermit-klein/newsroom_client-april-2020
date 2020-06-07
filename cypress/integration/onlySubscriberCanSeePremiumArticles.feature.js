@@ -1,4 +1,4 @@
-describe("user logged in as", () => {
+describe.only("user logged in as", () => {
   beforeEach(() => {
     cy.server();
     cy.route({
@@ -8,21 +8,44 @@ describe("user logged in as", () => {
     });
     cy.visit("/article/3");
   });
-  
-  it("subscriber doesn't see the premium blocker", () => {
-    cy.logIn("subscriber");
-    cy.route({
-      method: "GET",
-      url: "http://localhost:3000/api/articles/3",
-      response: "fixture:full_single_premium_article.json",
+  describe("subscriber", () => {
+    beforeEach(() => {
+      cy.logIn("subscriber");
+      cy.route({
+        method: "GET",
+        url: "http://localhost:3000/api/articles/3",
+        response: "fixture:full_single_premium_article.json",
+      });
+      cy.visit("/article/3");
     });
-    cy.visit("/article/3");
-    cy.get("#premium-blocker").should("not.exist");
+
+    it("doesn't see the premium blocker", () => {
+      cy.get("#premium-blocker").should("not.exist");
+    });
+
+    it("can see the article in full", () => {
+      cy.get("#article-3-body").should(
+        "contain",
+        "This text is written after the first 300 characters."
+      );
+    });
   });
 
-  it("user can see the premium blocker", () => {
-    cy.logIn("user");
-    cy.visit("/article/3");
-    cy.get("#premium-blocker").should("be.visible");
+  describe("user", () => {
+    beforeEach(() => {
+      cy.logIn("user");
+      cy.visit("/article/3");
+    });
+
+    it("can see the premium blocker", () => {
+      cy.get("#premium-blocker").should("be.visible");
+    });
+
+    it("can't see the article in full", () => {
+      cy.get("#article-3-body").should(
+        "not.contain",
+        "This text is written after the first 300 characters."
+      );
+    });
   });
 });
