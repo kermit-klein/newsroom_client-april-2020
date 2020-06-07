@@ -1,27 +1,18 @@
-import React, { useState } from "react";
-import axios from "axios";
-import "../modules/location";
+import React from "react";
+import { useSelector } from "react-redux";
 
 const Weather = () => {
-const [forecast, setForecast] = useState({});
+  const weather = useSelector((state) => state.weather.weatherInfo);
 
-
-  const getWeather = async () => {
-    const secretKey = process.env.REACT_APP_OPEN_WEATHER_API_SECRET_KEY;
-    let response = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&
-exclude=minutely,hourly,daily&appid=${secretKey}`);
-    return  temperature = response.current.temp
-  };
-useEffect(() => {
-  getWeather
-  return () => {
-    cleanup
-  }
-}, [input])
-
-  return <div>
-  <p>Temperature: {temperature}</p>
-  </div>;
+  return (
+    <div id="widget">
+      <h3>Current Weather</h3>
+      <p>Temperature: {Math.round(weather.temperature)}</p>
+      <br></br>
+      <p>{weather.description}</p>
+      <div>{`http://openweathermap.org/img/w/"${weather.iconUrl}".png`}</div>
+    </div>
+  );
 };
 
 export default Weather;

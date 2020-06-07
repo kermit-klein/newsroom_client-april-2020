@@ -10,6 +10,7 @@ import SignUpForm from "./components/SignUpForm";
 import { useDispatch } from "react-redux";
 import { getPlace } from "./modules/location";
 import { persistLogin } from "./modules/auth";
+import { getWeather } from "./modules/weather";
 
 const App = () => {
   const [uid, setUid] = useState("");
@@ -18,6 +19,7 @@ const App = () => {
 
   useEffect(async () => {
     getPlace(dispatch);
+    getWeather(dispatch);
     persistLogin(setAuthenticated, setUid);
   }, []);
 

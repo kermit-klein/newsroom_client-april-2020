@@ -3,6 +3,7 @@ import { Menu } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
 import "../css/Navbar.css";
 import { useTranslation } from "react-i18next";
+import Weather from "./Weather";
 
 const Navbar = () => {
   const [activeItem, setActiveItem] = useState("home")
@@ -46,7 +47,9 @@ const Navbar = () => {
           </NavLink>
         </Menu.Item>
         {renderCategories}
-        <Menu.Item></Menu.Item>
+        <Menu.Item>
+          <Weather />
+        </Menu.Item>
       </Menu>
     </div>
   );
