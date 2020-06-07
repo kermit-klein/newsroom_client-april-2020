@@ -1,0 +1,42 @@
+{
+  "articles": [
+    {
+      "id": 6,
+      "title": "Enhance 24/365 users",
+      "category": "entertainment",
+      "published_at": "2020-06-03 12:30",
+      "image": "https://news-room-team-1.s3.eu-north-1.amazonaws.com/89zmp9582vyqfn4pidcgxdycnm6o?response-content-disposition=inline%3B%20filename%3D%22image.jpg%22%3B%20filename%2A%3DUTF-8%27%27image.jpg\u0026response-content-type=image%2Fjpeg\u0026X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=AKIAIKNDI6ICZXWA675Q%2F20200607%2Feu-north-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20200607T152333Z\u0026X-Amz-Expires=3600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=fa02893d3d238c4c4658b6043c9ed01eadbaf06583a2bf28e96462112f232973",
+      "location": "Sweden",
+      "international": true
+    },
+    {
+      "id": 5,
+      "title": "Deliver efficient infrastructures",
+      "category": "economy",
+      "published_at": "2020-06-03 12:30",
+      "image": "https://news-room-team-1.s3.eu-north-1.amazonaws.com/tupm9tzbakageu9818x32635pahh?response-content-disposition=inline%3B%20filename%3D%22image.jpg%22%3B%20filename%2A%3DUTF-8%27%27image.jpg\u0026response-content-type=image%2Fjpeg\u0026X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=AKIAIKNDI6ICZXWA675Q%2F20200607%2Feu-north-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20200607T152333Z\u0026X-Amz-Expires=3600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=bc747d08446de9cb4691193c2ed2398b63726300b95a7d9227a005d3c2a87592",
+      "location": "Sweden",
+      "international": false
+    },
+    {
+      "id": 4,
+      "title": "Orchestrate best-of-breed vortals",
+      "category": "sport",
+      "published_at": "2020-06-03 12:30",
+      "image": "https://news-room-team-1.s3.eu-north-1.amazonaws.com/63uruyl8i3i2e3ydpd2myavd3wy4?response-content-disposition=inline%3B%20filename%3D%22image.jpg%22%3B%20filename%2A%3DUTF-8%27%27image.jpg\u0026response-content-type=image%2Fjpeg\u0026X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=AKIAIKNDI6ICZXWA675Q%2F20200607%2Feu-north-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20200607T152333Z\u0026X-Amz-Expires=3600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=1c0a210d772f5b78e659aa4e150c118221227c9165a32c797b15a08e4e45db98",
+      "location": "Sweden",
+      "international": true
+    },
+    {
+      "id": 1,
+      "title": "Target global models",
+      "category": "world",
+      "published_at": "2020-06-03 12:30",
+      "image": "https://news-room-team-1.s3.eu-north-1.amazonaws.com/8b5dbbz3yj912opba88elabffgcx?response-content-disposition=inline%3B%20filename%3D%22image.jpg%22%3B%20filename%2A%3DUTF-8%27%27image.jpg\u0026response-content-type=image%2Fjpeg\u0026X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=AKIAIKNDI6ICZXWA675Q%2F20200607%2Feu-north-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20200607T152333Z\u0026X-Amz-Expires=3600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=316925389a5adfb0b8f7c3f6762685f4bd87ae0a97f537d5276a0d3e137a5122",
+      "location": "Sweden",
+      "international": false
+    }
+  ],
+  "page": 2,
+  "next_page": null
+}

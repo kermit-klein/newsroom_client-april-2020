@@ -14,7 +14,7 @@ const ArticleCard = ({ article, size }) => {
   };
 
   return (
-    <Grid.Row centered>
+    <Grid.Row centered className="article-list-card">
       <Link
         onClick={setActiveArticle}
         to={{

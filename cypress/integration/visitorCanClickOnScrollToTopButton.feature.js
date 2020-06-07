@@ -1,12 +1,6 @@
 describe("visitor can click on button to scroll to top of page", () => {
   beforeEach(() => {
-    cy.server();
-    cy.route({
-      method: "GET",
-      url: "http://localhost:3000/api/articles",
-      response: "fixture:article_list.json",
-    });
-    cy.visit("/");
+    cy.stubMain();
   });
   it("button is not visible until scrolling down", () => {
     cy.get(".scrollTop").should('not.be.visible'); 
