@@ -13,37 +13,33 @@ import { useTranslation } from "react-i18next";
 const ArticleList = (props) => {
   const [articleList, setArticleList] = useState([]);
   const { t } = useTranslation();
-  const category = props.match.params.category || "";
+  const [category, setCategory] = useState(props.match.params.category || "");
+  const [page, setPage] = useState(1);
   let location = useSelector((state) => state.location.country);
 
   useEffect(() => {
-    const fetchArticleList = async () => {
+    const fetchNextBatch = async () => {
+      const pageParam = page && { page: page }
+      const locationParam = location && { location: location }
+      const categoryParam = category && { category: category }
+      const params = {
+        ...pageParam,
+        ...locationParam,
+        ...categoryParam
+      }
       try {
-        const response = await axios.get("/articles", { location: location });
+        const response = await axios.get("/articles", {params: params} );
         setArticleList(response.data.articles);
       } catch (error) {
         console.log(error);
       }
     };
-    fetchArticleList();
-  }, []);
+    fetchNextBatch();
+  }, [category]);
 
-  let filteredArticles = () => {
-    switch (category) {
-      case "":
-        return articleList;
-      case "local":
-        return articleList.filter((article) => article.location === location);
-      case "current":
-        return articleList.filter((article) => {
-          return Date.now() - Date.parse(article.published_at) < 86400000;
-        });
-      default:
-        return articleList.filter((article) => article.category === category);
-    }
-  };
 
-  let articleCards = filteredArticles().map((article) => {
+
+  let articleCards = articleList.map((article) => {
     return <ArticleCard article={article} size={1} />;
   });
 

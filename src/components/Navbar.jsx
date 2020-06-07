@@ -3,9 +3,12 @@ import { Menu } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
 import "../css/Navbar.css";
 import { useTranslation } from "react-i18next";
+import { useDispatch } from 'react-redux'
+import { setCategory } from "../modules/articles"
 
 const Navbar = () => {
   const [activeItem, setActiveItem] = useState("home");
+  const dispatch = useDispatch();
   const { t } = useTranslation();
   let categories = [
     [t("Current"), "Current"],
@@ -20,6 +23,7 @@ const Navbar = () => {
 
   const handleItemClick = (e, { name }) => {
     setActiveItem(name);
+    setCategory(name, dispatch)
   };
 
   let renderCategories = categories.map((cat) => {
