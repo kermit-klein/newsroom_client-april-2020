@@ -1,4 +1,4 @@
-describe.only("user logged in as", () => {
+describe("user logged in as", () => {
   beforeEach(() => {
     cy.server();
     cy.route({
