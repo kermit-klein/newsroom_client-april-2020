@@ -1,44 +1,44 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Grid } from "semantic-ui-react";
+import { Grid, Button } from "semantic-ui-react";
 import ArticleCard from "../components/ArticleCard";
 import Ad from "./Ad";
 import mercedesImg from "../images/mercedesAd.jpg";
 import lagavulinImg from "../images/lagavulinAd.jpg";
 import "../css/article.css";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import ScrollArrow from "./ScrollArrow";
 import { useTranslation } from "react-i18next";
-import { setCategory } from "../modules/articles"
 
 const ArticleList = (props) => {
-  const dispatch = useDispatch();
   const [articleList, setArticleList] = useState([]);
   const { t } = useTranslation();
-  const category = props.match.params.category || ""
+  const category = useSelector(state => state.articles.category);
   const [nextPage, setNextPage] = useState(1);
   const location = useSelector((state) => state.location.country);
-  const cached = useSelector(state => state.cached)
-
+  const [trigger, setTrigger] = useState(true)
+  
   const paramText = (
     <>
       <p>Page: {nextPage}</p>
       <p>Category: {category}</p>
       <p>Location: {location}</p>
+      <p>ArticleListLength {articleList.length}</p>
     </>
   )
 
-  debugger;
-    
   useEffect(() => {
-    fetchFirstBatch(category)
-  },[])
+    setNextPage(1)
+    setArticleList([])
+    setTrigger(!trigger)
+    console.log("You have switched to " + category)
+  },[category])
 
-  const fetchFirstBatch = async () => {
-    
-  }
+  useEffect(() => {
+    fetchBatch()
+  },[trigger])
 
-  const fetchNextBatch = async () => {
+  const fetchBatch = async () => {
     const locationParam = location && { location: location }
     const categoryParam = category && { category: category }
     const params = {
@@ -48,7 +48,8 @@ const ArticleList = (props) => {
     }
     try {
       const response = await axios.get("/articles", { params: params } );
-      setArticleList(response.data.articles);
+      setNextPage(response.data.next_page)
+      setArticleList(articleList.concat(response.data.articles));
     } catch (error) {
       console.log(error);
     }
@@ -70,6 +71,12 @@ const ArticleList = (props) => {
       </p>
     ));
 
+  let loadMoreButton = nextPage && (
+    <>
+      <Button onClick={() => fetchBatch()}>Load more</Button>
+    </>
+  )
+
   return (
     <>
       <div>
@@ -84,6 +91,7 @@ const ArticleList = (props) => {
           />
           {locationMessage}
           {articleCards}
+          {loadMoreButton}
           <Ad
             link={
               "https://www.malts.com/en-gb/visit-our-distilleries/lagavulin/"

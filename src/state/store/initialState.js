@@ -3,7 +3,7 @@ const initialState = {
   city: "",
   country: "",
   signupMessage: "",
-  category: {},
+  category: "",
   cached: {
     current: [],
     local: [],
@@ -11,7 +11,8 @@ const initialState = {
     politics: [],
     entertainment: [],
     economy: [],
-    sport: []
+    sport: [],
+    other: []
   }
 };
 export default initialState;
