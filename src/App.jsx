@@ -17,7 +17,7 @@ const App = () => {
   const [authenticated, setAuthenticated] = useState(false);
   const dispatch = useDispatch();
 
-  useEffect(async () => {
+  useEffect( () => {
     getPlace(dispatch);
     getWeather(dispatch);
     persistLogin(setAuthenticated, setUid);

@@ -1,3 +1,4 @@
+import axios from 'axios';
 
 const getWeather = (dispatch) => {
 navigator.geolocation.getCurrentPosition(async (pos) => {
@@ -6,15 +7,17 @@ navigator.geolocation.getCurrentPosition(async (pos) => {
       pos.coords.latitude,
       pos.coords.longitude
     );
+    debugger
     dispatch({
       type: "SET_WEATHER",
       payload: {
         temperature: weather.data.current.temp,
-        description: weather.data.weather.description,
-        iconUrl: weather.data.weather.icon
+        description: weather.data.current.weather[0].description,
+        iconUrl: weather.data.current.weather[0].icon
       },
     });
   } catch (error) {
+    debugger
     dispatch({
       type: "SET_WEATHER",
       payload: {
@@ -32,6 +35,7 @@ const weatherApiCall = async (lat, long) => {
   const secretKey = process.env.REACT_APP_OPEN_WEATHER_API_SECRET_KEY;
   let response = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&
 exclude=minutely,hourly,daily&appid=${secretKey}`);
+debugger
   return response;
 };
 
