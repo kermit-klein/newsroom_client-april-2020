@@ -36,6 +36,7 @@ const Navbar = () => {
         <NavLink
           to={`/category/${cat[1].toLowerCase()}`}
           id={cat[1].toLowerCase()}
+          className="cat-btn-text"
         >
           {cat[0]}
         </NavLink>

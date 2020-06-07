@@ -6,38 +6,53 @@ import Ad from "./Ad";
 import mercedesImg from "../images/mercedesAd.jpg";
 import lagavulinImg from "../images/lagavulinAd.jpg";
 import "../css/article.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import ScrollArrow from "./ScrollArrow";
 import { useTranslation } from "react-i18next";
+import { setCategory } from "../modules/articles"
 
 const ArticleList = (props) => {
+  const dispatch = useDispatch();
   const [articleList, setArticleList] = useState([]);
   const { t } = useTranslation();
-  const [category, setCategory] = useState(props.match.params.category || "");
-  const [page, setPage] = useState(1);
-  let location = useSelector((state) => state.location.country);
+  const category = props.match.params.category || ""
+  const [nextPage, setNextPage] = useState(1);
+  const location = useSelector((state) => state.location.country);
+  const cached = useSelector(state => state.cached)
 
+  const paramText = (
+    <>
+      <p>Page: {nextPage}</p>
+      <p>Category: {category}</p>
+      <p>Location: {location}</p>
+    </>
+  )
+
+  debugger;
+    
   useEffect(() => {
-    const fetchNextBatch = async () => {
-      const pageParam = page && { page: page }
-      const locationParam = location && { location: location }
-      const categoryParam = category && { category: category }
-      const params = {
-        ...pageParam,
-        ...locationParam,
-        ...categoryParam
-      }
-      try {
-        const response = await axios.get("/articles", {params: params} );
-        setArticleList(response.data.articles);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchNextBatch();
-  }, [category]);
+    fetchFirstBatch(category)
+  },[])
 
+  const fetchFirstBatch = async () => {
+    
+  }
 
+  const fetchNextBatch = async () => {
+    const locationParam = location && { location: location }
+    const categoryParam = category && { category: category }
+    const params = {
+      page: nextPage,
+      ...locationParam,
+      ...categoryParam
+    }
+    try {
+      const response = await axios.get("/articles", { params: params } );
+      setArticleList(response.data.articles);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   let articleCards = articleList.map((article) => {
     return <ArticleCard article={article} size={1} />;
@@ -59,6 +74,8 @@ const ArticleList = (props) => {
     <>
       <div>
         <Grid id="articleCards" fluid columns={3} divided centered>
+          <br />
+          {paramText}
           <Ad
             link={"https://www.mercedes-benz.com/en/"}
             id={"ad-1"}
