@@ -6,19 +6,22 @@ import Ad from "./Ad";
 import mercedesImg from "../images/mercedesAd.jpg";
 import lagavulinImg from "../images/lagavulinAd.jpg";
 import "../css/article.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import getCategory from "../modules/category";
 import ScrollArrow from "./ScrollArrow";
 import { useTranslation } from "react-i18next";
 
 const ArticleList = (props) => {
   const [articleList, setArticleList] = useState([]);
   const { t } = useTranslation();
-  const category = useSelector((state) => state.articles.category);
   const [nextPage, setNextPage] = useState(1);
   const location = useSelector((state) => state.location.country);
   const [trigger, setTrigger] = useState(true);
+  const category = props.match.params.category || "";
+  const dispatch = useDispatch();
 
   useEffect(() => {
+    getCategory(category, dispatch)
     setNextPage(1);
     setArticleList([]);
     setTrigger(!trigger);

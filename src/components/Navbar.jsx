@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { Menu } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
 import "../css/Navbar.css";
 import { useTranslation } from "react-i18next";
-import { useDispatch } from "react-redux";
-import { setCategory } from "../modules/articles";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
-  const [activeItem, setActiveItem] = useState("home");
-  const dispatch = useDispatch();
+  const activeItem = useSelector((state) => {
+    return state.category.category;
+  });
+
   const { t } = useTranslation();
   let categories = [
     [t("Current"), "current"],
@@ -21,18 +22,9 @@ const Navbar = () => {
     [t("Other"), "other"],
   ];
 
-  const handleItemClick = (e, { name }) => {
-    setActiveItem(name);
-    setCategory(name, dispatch);
-  };
-
   let renderCategories = categories.map((cat) => {
     return (
-      <Menu.Item
-        name={cat[1]}
-        active={activeItem === cat[1]}
-        onClick={handleItemClick}
-      >
+      <Menu.Item name={cat[1]} active={activeItem === cat[1]}>
         <NavLink
           to={`/category/${cat[1]}`}
           id={cat[1].toLowerCase()}
@@ -48,15 +40,8 @@ const Navbar = () => {
     <div style={{ backgroundColor: "teal" }}>
       <Menu id="navbar" inverted pointing secondary width={10}>
         <Menu.Item></Menu.Item>
-        <Menu.Item
-          name="home"
-          active={activeItem === "home"}
-          onClick={() => {
-            setActiveItem("home");
-            setCategory("", dispatch);
-          }}
-        >
-          <NavLink to="/" className="cat-btn-text">
+        <Menu.Item name="home" active={activeItem === ""}>
+          <NavLink to="/">
             <span id="logo">DNS</span>
           </NavLink>
         </Menu.Item>

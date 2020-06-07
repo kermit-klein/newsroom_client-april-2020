@@ -7,11 +7,6 @@ const articleReducer = (state = initialState, action) => {
         ...state,
         activeArticle: action.payload,
       };
-    case "SET_CATEGORY":
-      return {
-        ...state,
-        category: action.payload.category
-      }
     default:
       return state;
   }
