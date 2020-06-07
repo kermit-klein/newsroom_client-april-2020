@@ -13,42 +13,32 @@ import { useTranslation } from "react-i18next";
 const ArticleList = (props) => {
   const [articleList, setArticleList] = useState([]);
   const { t } = useTranslation();
-  const category = useSelector(state => state.articles.category);
+  const category = useSelector((state) => state.articles.category);
   const [nextPage, setNextPage] = useState(1);
   const location = useSelector((state) => state.location.country);
-  const [trigger, setTrigger] = useState(true)
-  
-  const paramText = (
-    <>
-      <p>Page: {nextPage}</p>
-      <p>Category: {category}</p>
-      <p>Location: {location}</p>
-      <p>ArticleListLength {articleList.length}</p>
-    </>
-  )
+  const [trigger, setTrigger] = useState(true);
 
   useEffect(() => {
-    setNextPage(1)
-    setArticleList([])
-    setTrigger(!trigger)
-    console.log("You have switched to " + category)
-  },[category])
+    setNextPage(1);
+    setArticleList([]);
+    setTrigger(!trigger);
+  }, [category]);
 
   useEffect(() => {
-    fetchBatch()
-  },[trigger])
+    fetchBatch();
+  }, [trigger]);
 
   const fetchBatch = async () => {
-    const locationParam = location && { location: location }
-    const categoryParam = category && { category: category }
+    const locationParam = location && { location: location };
+    const categoryParam = category && { category: category };
     const params = {
       page: nextPage,
       ...locationParam,
-      ...categoryParam
-    }
+      ...categoryParam,
+    };
     try {
-      const response = await axios.get("/articles", { params: params } );
-      setNextPage(response.data.next_page)
+      const response = await axios.get("/articles", { params: params });
+      setNextPage(response.data.next_page);
       setArticleList(articleList.concat(response.data.articles));
     } catch (error) {
       console.log(error);
@@ -71,18 +61,14 @@ const ArticleList = (props) => {
       </p>
     ));
 
-  let loadMoreButton = nextPage && (
-    <>
-      <Button onClick={() => fetchBatch()}>Load more</Button>
-    </>
-  )
+  let loadMoreButton = nextPage &&
+    <Button id="more-btn" onClick={() => fetchBatch()}>Load more</Button>
 
   return (
     <>
       <div>
         <Grid id="articleCards" fluid columns={3} divided centered>
           <br />
-          {paramText}
           <Ad
             link={"https://www.mercedes-benz.com/en/"}
             id={"ad-1"}

@@ -14,7 +14,7 @@ const ArticleCard = ({ article, size }) => {
   };
 
   return (
-    <Grid.Row centered>
+    <Grid.Row centered className="article-list-card">
       <Link
         onClick={setActiveArticle}
         to={{
@@ -27,7 +27,7 @@ const ArticleCard = ({ article, size }) => {
           src={article.image}
           style={{ height: 200 * size, width: 400 * size }}
         />
-        <h5 className="article-title">{article.category}</h5>
+        <h5 className="article-title">{article.title}</h5>
       </Link>
     </Grid.Row>
   );
