@@ -18,8 +18,14 @@ const SingleArticle = (props) => {
   const article = useSelector((state) => state.articles.activeArticle);
 
   const chooseArticle = async () => {
+    let headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"));
+    headers = {
+      ...headers,
+      "Content-type": "application/json",
+      Accept: "application/json",
+    };
     try {
-      const response = await axios.get(`/articles/${id}`);
+      const response = await axios.get(`/articles/${id}`, { headers: headers });
       dispatch({ type: "SET_ACTIVE_ARTICLE", payload: response.data.article });
     } catch (error) {
       console.log(error);
