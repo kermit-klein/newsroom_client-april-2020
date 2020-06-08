@@ -16,6 +16,7 @@ const ArticleCard = ({ articleProp, size, margin }) => {
 
   return (
     <Container
+      className={articleProp ? "article-list-card" : "" }
       align="left" style={{height: `${225 * size}px`, width: `${450 * size}px`, marginBottom: 5 * margin, marginLeft: 5 * margin}}>
       <Link
         onClick={setActiveArticle}
