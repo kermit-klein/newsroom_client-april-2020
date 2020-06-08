@@ -1,9 +1,10 @@
 import React from "react";
-import { Grid, Image } from "semantic-ui-react";
+import { Container, Image } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-const ArticleCard = ({ article, size }) => {
+const ArticleCard = ({ articleProp, size, margin }) => {
+  const article = articleProp ? articleProp : {}
   const dispatch = useDispatch();
 
   const setActiveArticle = () => {
@@ -14,7 +15,9 @@ const ArticleCard = ({ article, size }) => {
   };
 
   return (
-    <Grid.Row centered className="article-list-card">
+    <Container
+      className={articleProp ? "article-list-card" : "" }
+      align="left" style={{height: `${225 * size}px`, width: `${450 * size}px`, marginBottom: 5 * margin, marginLeft: 5 * margin}}>
       <Link
         onClick={setActiveArticle}
         to={{
@@ -25,12 +28,13 @@ const ArticleCard = ({ article, size }) => {
       >
         <Image
           src={article.image}
-          style={{ height: 200 * size, width: 400 * size }}
+          style={{ height: `${225 * size}px`, width: `${450 * size}px`}}
         />
-        <h5 className="article-title">{article.title}</h5>
+        <h5 style={{fontSize: size < 1 ? 15 : 20 * size, bottom: size < 1 ? 80 : 100}} className="article-title">{article.title}</h5>
       </Link>
-    </Grid.Row>
+    </Container>
   );
 };
 
 export default ArticleCard;
+
