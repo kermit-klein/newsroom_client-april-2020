@@ -5,13 +5,18 @@ import { Link, useHistory } from "react-router-dom";
 import { auth } from "../modules/auth.js";
 import "../css/Header.css";
 import "../i18n";
+import { useDispatch, useSelector } from 'react-redux'
 
-const Header = (props) => {
+const Header = () => {
+  const dispatch = useDispatch()
   const history = useHistory();
+  const uid = useSelector(state => state.auth.uid)
+  const authenticated = useSelector(state => state.auth.authenticated)
+
   const logout = async () => {
     try {
       await auth.signOut();
-      props.setAuthenticated(false);
+      dispatch({type: "LOGOUT"});
       history.push("/");
     } catch (error) {
       console.log(error);
@@ -64,18 +69,18 @@ const Header = (props) => {
           </h1>
         </Grid.Column>
         <Grid.Column id="login">
-          {!props.authenticated ? (
+          {!authenticated ? (
             <Link name="Login" to={{ pathname: "/sign_in" }}>
-              <Button size="tiny" floated="right" basic inverted id="login">
+              <Button size="small" floated="right" basic inverted id="login">
                 {t("Login")}
               </Button>
             </Link>
           ) : (
             <>
               <Grid.Column>
-                <p>
+                <p style={{fontSize: "110%"}}>
                   {t("Good")} {time} <br></br>
-                  {props.uid}
+                  {uid}
                 </p>
               </Grid.Column>
 
@@ -85,7 +90,7 @@ const Header = (props) => {
                     floated="right"
                     basic
                     inverted
-                    size="tiny"
+                    size="small"
                     id="logout"
                     onClick={() => logout()}
                   >
@@ -97,7 +102,7 @@ const Header = (props) => {
           )}
           <Grid.Column>
             <Link to="/subscription" id="subscription-link">
-              <Button size="tiny" id="subscribe" floated="right" basic inverted>
+              <Button size="small" id="subscribe" floated="right" basic inverted>
                 {t("Subscribe")}
               </Button>
             </Link>

@@ -6,6 +6,6 @@
     "provider": "email",
     "uid": "user@mail.com",
     "allow_password_change": false,
-    "role": "user"
+    "role": "subscriber"
   }
 }

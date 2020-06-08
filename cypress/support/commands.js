@@ -5,11 +5,12 @@ Cypress.Commands.add("typeInStripeElement", (element, value) => {
   });
 });
 
-Cypress.Commands.add("logIn", () => {
+Cypress.Commands.add("logIn", (role) => {
+  const fixture = role === "user" ? "successful" : "subscriber" 
   cy.route({
     method: "POST",
     url: "http://localhost:3000/api/auth/*",
-    response: "fixture:successful_login.json",
+    response: `fixture:${fixture}_login.json`,
     headers: {
       uid: "user@mail.com",
     },
@@ -17,15 +18,14 @@ Cypress.Commands.add("logIn", () => {
   cy.route({
     method: "GET",
     url: "http://localhost:3000/api/auth/*",
-    response: "fixture:successful_login.json",
+    response: `fixture:${fixture}_login.json`,
     headers: {
       uid: "user@mail.com",
     },
   });
   cy.get("#language").contains("EN").click();
-  cy.wait(2000);
-  cy.get("a > #login").click();
-  cy.get("a > #login").click();
+  cy.wait(1000);
+  cy.get("a > #login").contains("Login").click();
   cy.get("#login-form").within(() => {
     cy.get("#email").type("user@mail.com");
     cy.get("#password").type("password");
