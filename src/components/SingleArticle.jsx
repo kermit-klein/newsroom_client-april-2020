@@ -37,12 +37,10 @@ const SingleArticle = () => {
     chooseArticle();
   }, []);
 
-  
-
   return (
     <Container align="center" style={{ paddingTop: "45px", width: "55%" }}>
       <Grid stretched>
-        <ArticleCard article={article} size={2} />
+        <ArticleCard articleProp={article} size={2} />
         <Grid.Row centered>
           <p
             key={article.id}
