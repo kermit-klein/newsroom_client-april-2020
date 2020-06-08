@@ -1,0 +1,30 @@
+{
+  "lat": 57.71,
+  "lon": 11.97,
+  "timezone": "Europe/Stockholm",
+  "timezone_offset": 7200,
+  "current": {
+      "dt": 1591474817,
+      "sunrise": 1591409765,
+      "sunset": 1591473955,
+      "temp": 11.01,
+      "feels_like": 5.83,
+      "pressure": 997,
+      "humidity": 81,
+      "dew_point": 7.88,
+      "uvi": 4.89,
+      "clouds": 75,
+      "visibility": 10000,
+      "wind_speed": 6.7,
+      "wind_deg": 200,
+      "weather": [
+          {
+              "id": 521,
+              "main": "Rain",
+              "description": "shower rain",
+              "icon": "09n"
+          }
+      ]
+  }
+  
+}

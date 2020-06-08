@@ -69,3 +69,7 @@ a {
     opacity: 0.5;
   }
 }
+
+#more-btn {
+  z-index: 10;
+}

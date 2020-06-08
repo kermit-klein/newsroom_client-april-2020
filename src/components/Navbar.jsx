@@ -5,6 +5,7 @@ import "../css/Navbar.css";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 
+
 const Navbar = () => {
   const activeItem = useSelector((state) => {
     return state.category.selectedCategory;

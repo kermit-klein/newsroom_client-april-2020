@@ -3,6 +3,7 @@ import axios from "axios";
 import { Grid, Button } from "semantic-ui-react";
 import ArticleCard from "../components/ArticleCard";
 import Ad from "./Ad";
+import Weather from "./Weather";
 import mercedesImg from "../images/mercedesAd.jpg";
 import lagavulinImg from "../images/lagavulinAd.jpg";
 import "../css/article.css";
@@ -67,8 +68,73 @@ const ArticleList = (props) => {
   let loadMoreButton = nextPage &&
     <Button id="more-btn" onClick={() => fetchBatch()}>{t("Show More")}</Button>
 
+    const buildArticleCards = () => {
+      const articleCards = [];
+      let i = 0;
+      while (i < articleList.length) {
+        articleCards.push(
+          <Grid.Row style={{ padding: 0, margin: 1 }}>
+            <Grid.Column
+              stretched
+              style={{ padding: 0, margin: 0, width: "fit-content" }}
+            >
+              <Grid.Row>
+                <ArticleCard articleProp={articleList[i]} size={1} margin={2} />
+              </Grid.Row>
+              <Grid.Row>
+                <ArticleCard articleProp={articleList[i + 1]} size={1} margin={2} />
+              </Grid.Row>
+            </Grid.Column>
+            <Grid.Column
+              width={3}
+              style={{ padding: 0, marginLeft: 5, width: "fit-content" }}
+            >
+              <ArticleCard
+                articleProp={articleList[i + 2]}
+                size={2 / 3}
+                margin={1}
+              />
+              <ArticleCard
+                articleProp={articleList[i + 3]}
+                size={2 / 3}
+                margin={1}
+              />
+              <ArticleCard
+                articleProp={articleList[i + 4]}
+                size={2 / 3}
+                margin={1}
+              />
+            </Grid.Column>
+            <Grid.Column
+              width={3}
+              style={{ padding: 0, marginLeft: 5, width: "fit-content" }}
+            >
+              <ArticleCard
+                articleProp={articleList[i + 5]}
+                size={2 / 3}
+                margin={1}
+              />
+              <ArticleCard
+                articleProp={articleList[i + 6]}
+                size={2 / 3}
+                margin={1}
+              />
+              <ArticleCard
+                articleProp={articleList[i + 7]}
+                size={2 / 3}
+                margin={1}
+              />
+            </Grid.Column>
+          </Grid.Row>
+        );
+        i += 8;
+      }
+      return articleCards;
+    };  
+
   return (
     <>
+    <Weather />
       <div>
         <Grid id="articleCards" fluid columns={3} divided centered>
           <br />
@@ -79,7 +145,7 @@ const ArticleList = (props) => {
             alt={"mercedes"}
           />
           {locationMessage}
-          {articleCards}
+          {buildArticleCards()}
           {loadMoreButton}
           <Ad
             link={
