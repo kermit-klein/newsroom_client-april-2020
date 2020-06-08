@@ -8,7 +8,7 @@ describe("visitor can only view part of premium article", () => {
     });
     cy.route({
       method: "GET",
-      url: "http://localhost:3000/api/articles/2",
+      url: "http://localhost:3000/api/articles/3",
       response: "fixture:single_premium_article.json",
     });
   });
@@ -22,15 +22,15 @@ describe("visitor can only view part of premium article", () => {
   });
 
   it("premium article is only partially displayed", () => {
-    cy.visit('/article/2')
+    cy.visit('/article/3')
     cy.get(".article-title").should("contain", "Premium title");
-    cy.get("#article-2-date").should("contain", "2020-02-20 13:37");
-    cy.get("#article-2-body").should("not.contain", "Maecenas interdum varius fringilla.");
+    cy.get("#article-3-date").should("contain", "2020-02-20 13:37");
+    cy.get("#article-3-body").should("not.contain", "Maecenas interdum varius fringilla.");
     cy.get("#premium-blocker").should("exist")
   });
 
   it("premium blocker has informative message", () => {
-    cy.visit('/article/2')
+    cy.visit('/article/3')
     cy.get("#premium-blocker").should('contain', "This is a premium article")
   })
 });
