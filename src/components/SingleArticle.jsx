@@ -37,7 +37,17 @@ const SingleArticle = () => {
     chooseArticle();
   }, []);
 
-  
+  // const smallArticles = () => {
+  //   const randomArticles = [];
+  //   for (let i = 0; i < 10; i++) {
+  //     const randomArticle =
+  //       articleList[Math.floor(Math.random() * articleList.length)];
+  //     randomArticles.push(
+  //       <ArticleCard articleProp={randomArticle} size={0.5} margin={1} />
+  //     );
+  //   }
+  //   return randomArticles;
+  // };
 
   return (
     <Container align="center" style={{ paddingTop: "45px", width: "55%" }}>
