@@ -6,12 +6,15 @@ import { Elements } from 'react-stripe-elements'
 import { Link } from "react-router-dom";
 import { Button, Segment } from "semantic-ui-react";
 import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from 'react-redux'
 
-const CreateSubscription = (props) => {
+const CreateSubscription = () => {
   const headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"));
-  const [subscriberStatus, setSubscriberStatus] = useState(false);
+  const authenticated = useSelector(state => state.auth.authenticated)
+  const subscriberStatus = useSelector(state => state.auth.subscriber)
+  const dispatch = useDispatch()
   const [transactionMessage, setTransactionMessage] = useState("");
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const submitPayment = async (stripeToken) => {
     try {
@@ -21,9 +24,11 @@ const CreateSubscription = (props) => {
         { headers: headers }
       );
       if (paymentStatus.status === 200) {
-        setSubscriberStatus(true);
+        dispatch({
+          type: "SET_SUBSCRIBERSTATUS",
+          payload: true
+        });
         setTransactionMessage(paymentStatus.data.message);
-
         setTimeout(() => {
           setTransactionMessage("");
         }, 4000);
@@ -36,7 +41,7 @@ const CreateSubscription = (props) => {
 
   return (
     <div className="container">
-      {props.authenticated ?
+      {authenticated ?
         (subscriberStatus ? (
           <div className="messages">
             <h2 id="transaction-message">{transactionMessage}</h2>

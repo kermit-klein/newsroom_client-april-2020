@@ -1,4 +1,4 @@
-import React, { useState, Suspense, useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import ArticleList from "./components/ArticleList";
 import Header from "./components/Header";
@@ -13,23 +13,17 @@ import { persistLogin } from "./modules/auth";
 import { getWeather } from "./modules/weather";
 
 const App = () => {
-  const [uid, setUid] = useState("");
-  const [authenticated, setAuthenticated] = useState(false);
   const dispatch = useDispatch();
 
-  useEffect( () => {
+  useEffect(() => {
     getPlace(dispatch);
     getWeather(dispatch);
-    persistLogin(setAuthenticated, setUid);
+    persistLogin(dispatch);
   }, []);
 
   return (
     <>
-      <Header
-        uid={uid}
-        authenticated={authenticated}
-        setAuthenticated={setAuthenticated}
-      >
+      <Header>
         <Suspense fallback={<div>Loading</div>} />
       </Header>
       <Navbar />
@@ -38,29 +32,23 @@ const App = () => {
         <Route
           exact
           path="/article/:id"
-          render={() => <SingleArticle authenticated={authenticated} />}
+          component={SingleArticle}
         ></Route>
         <Route exact path="/category/:category" component={ArticleList}></Route>
         <Route
           exact
           path="/subscription"
-          render={() => <CreateSubscription authenticated={authenticated} />}
+          component={CreateSubscription}
         ></Route>
         <Route
           exact
           path="/sign_in"
-          render={() => (
-            <LoginForm
-              uid={uid}
-              setUid={setUid}
-              setAuthenticated={setAuthenticated}
-            />
-          )}
+          component={LoginForm}
         ></Route>
         <Route
           exact
           path="/sign_up"
-          render={() => <SignUpForm setUid={setUid} />}
+          component={SignUpForm}
         ></Route>
       </Switch>
     </>

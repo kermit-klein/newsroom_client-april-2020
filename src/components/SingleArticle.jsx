@@ -11,11 +11,12 @@ import "../css/article.css";
 import ScrollArrow from "./ScrollArrow";
 import ArticleCard from "./ArticleCard";
 
-const SingleArticle = (props) => {
+const SingleArticle = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const { t } = useTranslation();
-  const article = useSelector((state) => state.articles.activeArticle);
+  const article = useSelector(state => state.articles.activeArticle);
+  const subscriber = useSelector(state => state.auth.subscriber)
 
   const chooseArticle = async () => {
     let headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"));
@@ -35,6 +36,8 @@ const SingleArticle = (props) => {
   useEffect(() => {
     chooseArticle();
   }, []);
+
+  
 
   return (
     <Container align="center" style={{ paddingTop: "45px", width: "55%" }}>
@@ -57,7 +60,7 @@ const SingleArticle = (props) => {
             className="article-body"
           >
             {article.body}
-            {article.premium && !props.authenticated && <PremiumBlocker />}
+            {article.premium && !subscriber && <PremiumBlocker />}
           </p>
         </Grid.Row>
         <Grid.Row centered>

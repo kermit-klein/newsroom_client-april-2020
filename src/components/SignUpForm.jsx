@@ -7,10 +7,10 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 
 const SignUpForm = (props) => {
-  const signupMessage = useSelector((state) => state.messages.signupMessage);
-  const dispatch = useDispatch()
+  const signupMessage = useSelector(state => state.messages.signupMessage);
+  const dispatch = useDispatch();
   const history = useHistory();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const signup = async (e) => {
     e.preventDefault();
@@ -22,8 +22,7 @@ const SignUpForm = (props) => {
       });
 
       if (response.data.status === "success") {
-        props.setUid(response.data.uid);
-        history.push("/sign_in");
+        history.replace("/sign_in");
         dispatch({
           type: "SET_SIGNUP_MESSAGE",
           payload: { signupMessage: response.data.message },
