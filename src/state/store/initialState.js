@@ -3,6 +3,7 @@ const initialState = {
   city: "",
   country: "",
   signupMessage: "",
+  weatherInfo: {},
   selectedCategory: "",
   authenticated: false,
   subscriber: false,

@@ -3,6 +3,7 @@ import axios from "axios";
 import { Grid, Button } from "semantic-ui-react";
 import ArticleCard from "../components/ArticleCard";
 import Ad from "./Ad";
+import Weather from "./Weather";
 import mercedesImg from "../images/mercedesAd.jpg";
 import lagavulinImg from "../images/lagavulinAd.jpg";
 import "../css/article.css";
@@ -133,6 +134,7 @@ const ArticleList = (props) => {
 
   return (
     <>
+    <Weather />
       <div>
         <Grid id="articleCards" fluid columns={3} divided centered>
           <br />
