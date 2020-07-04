@@ -21,7 +21,7 @@ Visit the [live website](http://dailynewssense.netlify.app) or clone the repo to
 
 ## Authors:
 
-[Ali Erbay](https://github.com/kermit-klein)
+[Ali Erbay](https://github.com/kermit-klein) 
 [Steve Watson](https://github.com/designerofthing)  
 [Pauline Barnades](https://github.com/PaulineBA)  
 [Erik Björn](https://github.com/erikbjoern)  
