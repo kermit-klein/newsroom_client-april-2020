@@ -1,6 +1,8 @@
 # Daily News Sense Client site
 
  [![Build Status](https://semaphoreci.com/api/v1/jysmys/newsroom_client-april-2020/branches/development/badge.svg)](https://semaphoreci.com/jysmys/newsroom_client-april-2020)
+ 
+ ![Img](https://i.imgur.com/D5aeat2.png)
 
 
 The objective was to create a news platform that allow for the staff to create, review and publish news, and for users to browse both local and international news, as well as a mobile version of the user client.
